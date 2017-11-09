@@ -1,3 +1,30 @@
+## Algumas coisas que precisamos seguir
+
+1. Sempre sempre criar branches para fazer alterações
+2. Ao terminar uma alteração fazer o merge com o master o quanto antes
+3. Usar a opção "update from master" constantemente quando estiver num outro branch
+4. Fazer pushs e pulls constantemente
+5. Caso um conflito ocorra
+	4.1. Forçar o merge pela linha de comando
+	
+	
+		git add *
+		git commit -m "mensagem"
+		git pull
+		git checkout <branch alvo do merge (normalmente o master)>
+		git merge <branch de onde puxar os arquivos do merge>
+
+
+	4.2. Procure no arquivo com conflito as marcações que o git colocou, ele vai separar as partes do código em "parte antiga" e "parte nova". Deletar as partes erradas e fazer um outro commit
+	
+	4.3. Caso seja preciso, remova o arquivo com conflito do branch menos atualizado e faça novamente o merge
+	
+		git checkout <nome do branch menos atualizado>
+		git rm nomearquivo.abc
+
+------
+
+
 # G_SI401B_2017S2 - Programação para a Web
 ## Trabalho 3 - PHP
 ### Enunciado
