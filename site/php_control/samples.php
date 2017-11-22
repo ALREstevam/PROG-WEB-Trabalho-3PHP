@@ -2,6 +2,8 @@
 
 /*
 
+Só código de exemplo
+
  $_SERVER['REQUEST_METHOD'] == "POST"
 
 if (session_status() == PHP_SESSION_NONE) {

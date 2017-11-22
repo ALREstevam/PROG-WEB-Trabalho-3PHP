@@ -2,8 +2,6 @@
 /**
  * Created by PhpStorm.
  * User: andre
- * Date: 17/11/2017
- * Time: 22:32
  */
 
 class User{
@@ -70,6 +68,7 @@ class User{
     function __toString()
     {
         // TODO: Implement __toString() method.
+        // Pode ser utilizado para imprimir o objeto já com o html
         return "";
     }
 

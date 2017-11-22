@@ -15,6 +15,11 @@ include_once User::class;
 
 class UserControl{
 
+    /**
+     * Adicionar um usuário se o CPF não existir, atualizar se já exisitr (testar se é novo ou não e chamar
+     * addUser OU updateUser)
+     * @param User $usr
+     */
     function addUpdateUser(User $usr){
 
 
