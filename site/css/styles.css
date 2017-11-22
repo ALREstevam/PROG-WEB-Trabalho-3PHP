@@ -1,0 +1,81 @@
+body{
+
+}
+
+h1{
+
+}
+
+h2{
+
+}
+
+h3{
+
+}
+
+.user{
+
+}
+
+.menu{
+
+}
+
+.menu ul{
+
+}
+
+.menu ul li{
+
+}
+
+.menu ul li a{
+
+}
+
+.menu ul li a:hover{
+
+}
+
+.section{
+
+}
+
+input{
+
+}
+
+input:hover{
+
+}
+
+input:valid {
+    border: rgba(10, 178, 50, 0.55) 2px solid;
+}
+
+input:invalid {
+    border: rgba(178, 19, 15, 0.55) 2px solid;
+}
+
+.button{
+
+}
+
+.button:hover{
+
+}
+
+.flexcolumn{
+    display: flex;
+    flex-direction: column;
+}
+
+.flexrow{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
