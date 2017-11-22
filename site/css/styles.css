@@ -1,4 +1,12 @@
 body{
+    font-family: "Roboto", "Calibri Light", sans-serif;
+    padding: 0;
+    margin: -20px 0 0 0;
+    /*color: whitesmoke;
+    background-color: #545856;*/
+
+    color: #545856;
+    background-color: whitesmoke;
 
 }
 
@@ -58,12 +66,69 @@ input:invalid {
     border: rgba(178, 19, 15, 0.55) 2px solid;
 }
 
-.button{
-
+.button {
+    padding: 10px;
+    border: none;
+    border-radius: 0;
+    background-color: rgba(17, 17, 17, 0.89);
+    color: whitesmoke;
+    cursor: pointer;
+    transition: background 0.5s;
+    min-width: 100px;
 }
 
-.button:hover{
 
+.button:hover {
+    background-color: rgba(17, 17, 17, 0.60);
+}
+
+.redButton {
+    background-color: #cb4b37;
+    transition: background 0.5s;
+}
+
+.redButton:hover {
+    background-color: #b24632;
+}
+
+.greenButton {
+    background-color: #3ada76;
+    transition: background 0.5s;
+}
+
+.greenButton:hover {
+    background-color: #3bb95c;
+}
+
+.blueButton {
+    background-color: #177bbb;
+    transition: background 0.5s;
+}
+
+.blueButton:hover {
+    background-color: #1667a1;
+}
+
+input {
+    display: block;
+    border: #545856 2px solid;
+    padding: 3px;
+    margin: 3px 0 10px 0;
+    transition: border 1s;
+}
+
+.sticky{
+    width: 95%;
+}
+
+.hCentered{
+    margin: 0 auto;
+}
+
+button.hCentered{
+    background-color: blue;
+    text-align:center;
+    //margin:0 auto;
 }
 
 .flexcolumn{

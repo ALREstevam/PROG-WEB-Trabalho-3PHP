@@ -5,10 +5,12 @@
  */
 
 //DATABASE
-define("DB_NAME","");
-define("DB_HOST", "");
+define("DB_NAME","db_pw3");
+define("DB_HOST", "localhost");
 define("DB_PASSWORD","");
-define("DB_USERNAME","");
+define("DB_USERNAME","root");
+
+define("DB_TABLE_USER", 'tbl_users');
 
 define("PATH_SSI_MENU",__DIR__.'/ssi/menu.php');
 define("PATH_USER_CONTROL",__DIR__.'/UserControl.class.php');

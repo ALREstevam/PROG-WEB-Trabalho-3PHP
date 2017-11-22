@@ -21,8 +21,7 @@ class UserControl{
      * @param User $usr
      */
     function addUpdateUser(User $usr){
-
-
+        
     }
 
     function addUser(User $usr){
@@ -32,11 +31,6 @@ class UserControl{
 
     function updateUser(User $usr){
 
-
-    }
-
-    function retrieveUser($id){
-    
     }
     
     function retrieveAllUsers(){
@@ -45,5 +39,21 @@ class UserControl{
 
     function toUserObject($OriginalData){
         
+    }
+
+    function authUser($login, $password){
+
+    }
+
+    function loginUser($uid){
+
+    }
+
+    function logoutUser(){
+
+    }
+
+    function isUserLogged(){
+
     }
 }
