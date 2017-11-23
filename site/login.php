@@ -20,6 +20,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     }
 }
 
+$usr = new User("Aluhua eloa", 'aaaloa', 'ma@il', '123', '19/05/1999', '123', '3568-989', 'Rua das Paineirais', '566', 'Nova Europa', 'BLOCO X', '1256-000', 'Nova Rússiia', 'Antártica', true);
+
+echo $usr;
 
 
 ?>
