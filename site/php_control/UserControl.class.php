@@ -37,7 +37,7 @@ class UserControl{
     function retrieveAllUsers(){   //KAREN
         $BD = new DbConnection();
 		$conection = $BD->connectWithConsts();
-		$result = $conection->query( SELECT * FROM tbl_users );
+		$result = $conection->query("SELECT * FROM tbl_users");
 		$result->fetchAll();
     }
 
