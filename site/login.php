@@ -6,18 +6,20 @@
 
 require_once "php_control/UserControl.class.php";
 if($_SERVER['REQUEST_METHOD'] == "POST"){
-    echo "logando";
     if(isset($_POST['login']) && isset($_POST['pswd'])){
         $uc = new UserControl();    
         $id = $uc->authUser($_POST['login'], $_POST['pswd']);
-        
         if($id != -1){
             $uc->loginUser($id);
+            $user = $uc->retrieveUser($id);
+            if($user -> isIsAdmin()){
+                header('Location: '.'');
+            }else{
+                header('Location: '.'login.php');
+            }
         }
     }
 }
-
-
 
 
 ?>

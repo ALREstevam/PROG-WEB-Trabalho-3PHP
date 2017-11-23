@@ -37,6 +37,10 @@ class UserControl{
         
     }
 
+    function retrieveUser($id){
+        return new User();
+    }
+
     function toUserObject($OriginalData){
         
     }
