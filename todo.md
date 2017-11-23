@@ -43,7 +43,8 @@
 |Número|Responsável|Estado|Grupo|Tarefa|
 |-|-|-|-|-|
 |1. | **André** | Feito |A| Script `SQL` de criação do banco |
-|2. |**?**|Não feito|A|`DbSetup.class.php` execução do script de criação do banco
+|2. |**Huanna
+**|Não feito|A|`DbSetup.class.php` execução do script de criação do banco
 |3. |**André**|Copiado|B|`DbConnection.class.php` script de conexão com o banco
 |4. |**André**|Não feito|C|`User.class.php > __toString()` impressão de um objeto que representa um usuário usando HTML e classes CSS
 |5. |**?**|Não feito|D|`UserControl.class.php > addUpdateUser` testar se o usuário já foi cadastrado ou não e chamar o método correspondente
