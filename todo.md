@@ -46,9 +46,9 @@
 |2. |**Huanna**|Não feito|A|`DbSetup.class.php` execução do script de criação do banco
 |3. |**André**|Copiado|B|`DbConnection.class.php` script de conexão com o banco
 |4. |**André**|Não feito|C|`User.class.php > __toString()` impressão de um objeto que representa um usuário usando HTML e classes CSS
-|5. |**?**|Não feito|D|`UserControl.class.php > addUpdateUser` testar se o usuário já foi cadastrado ou não e chamar o método correspondente
-|6. |**?**|Não feito|D|`UserControl.class.php  > addUser` comunicação com o banco para inserir um novo usuário
-|7. |**?**|Não feito|D|`UserControl.class.php  > updateUser` comunicação com o banco para atualizar um us
+|5. |**Huanna**|Não feito|D|`UserControl.class.php > addUpdateUser` testar se o usuário já foi cadastrado ou não e chamar o método correspondente
+|6. |**Huanna**|Não feito|D|`UserControl.class.php  > addUser` comunicação com o banco para inserir um novo usuário
+|7. |**Huanna**|Não feito|D|`UserControl.class.php  > updateUser` comunicação com o banco para atualizar um us
 |8. |**?**|Não feito|E|`UserControl.class.php  > retrieveAllUsers` comunicação com o banco para obter uma lista de objetos `User`
 |9. |**?**|Não feito|E|`UserControl.class.php  > toUserObject` utilizado pelos métodos `retrieve...`, converter os dados recebidos de uma consulta para um objeto do tipo `User`
 |10. |**?**|Não feito|F|`UserControl.class.php  > authUser` retornar um objeto do tipo `User` se existir no banco uma combinação de login e senha ou algum outro valor caso contrário
