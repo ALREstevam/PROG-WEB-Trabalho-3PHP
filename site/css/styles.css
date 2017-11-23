@@ -4,8 +4,8 @@ body{
     margin: -20px 0 0 0;
     /*color: whitesmoke;
     background-color: #545856;*/
-
-    color: #545856;
+    height: 100%;
+    color: #2d312f;
     background-color: whitesmoke;
 
 }
@@ -50,8 +50,11 @@ h3{
 
 }
 
-input{
-
+input {
+    display: block;
+    border: transparent 2px solid;
+    padding: 3px;
+    transition: border 1s;
 }
 
 input:hover{
@@ -66,7 +69,27 @@ input:invalid {
     border: rgba(178, 19, 15, 0.55) 2px solid;
 }
 
-.button {
+.large{
+    font-size: 130%;
+}
+
+input.large{
+    padding: 6px;
+    font-size: 130%;
+}
+
+label.large{
+    font-size: 130%;
+}
+
+button.large{
+    padding: 10px;
+    font-size: 140%;
+    font-weight: bold;
+    border: 5px;
+}
+
+button.button {
     padding: 10px;
     border: none;
     border-radius: 0;
@@ -78,44 +101,48 @@ input:invalid {
 }
 
 
-.button:hover {
+button.button:hover {
     background-color: rgba(17, 17, 17, 0.60);
 }
 
-.redButton {
+button.redButton {
     background-color: #cb4b37;
     transition: background 0.5s;
 }
 
-.redButton:hover {
+button.red:hover {
     background-color: #b24632;
 }
 
-.greenButton {
+button.green {
     background-color: #3ada76;
     transition: background 0.5s;
 }
 
-.greenButton:hover {
+button.green:hover {
     background-color: #3bb95c;
 }
 
-.blueButton {
+button.blue {
     background-color: #177bbb;
     transition: background 0.5s;
 }
 
-.blueButton:hover {
+button.blue:hover {
     background-color: #1667a1;
 }
 
-input {
-    display: block;
-    border: #545856 2px solid;
-    padding: 3px;
-    margin: 3px 0 10px 0;
-    transition: border 1s;
+button.black {
+    background-color: #2d312f;
+    transition: background 0.5s;
+    color: whitesmoke;
 }
+
+button.black:hover {
+    background-color: #484c4a;
+}
+
+
 
 .sticky{
     width: 95%;
@@ -125,11 +152,22 @@ input {
     margin: 0 auto;
 }
 
-button.hCentered{
-    background-color: blue;
-    text-align:center;
-    //margin:0 auto;
+.vCentered{
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
 }
+
+button.hCentered{
+    text-align:center;
+    margin:auto;
+    display: flex;
+    justify-content: center;
+}
+
+
+
 
 .flexcolumn{
     display: flex;
@@ -141,6 +179,20 @@ button.hCentered{
     flex-direction: row;
 }
 
+
+.shadowed{
+    box-shadow: 12px 12px 70px -16px rgba(0, 0, 0, 0.29);
+}
+
+/****************************************************/
+
+#loginDiv{
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.16);
+    width: 50%;
+    height:50%;
+    border: solid rgba(0, 0, 0, 0.44);
+}
 
 
 
