@@ -33,7 +33,7 @@ class UserControl{
 
     }
 
-    function retrieveAllUsers(){
+    function retrieveAllUsers(){   //KAREN
         
     }
 
@@ -41,8 +41,8 @@ class UserControl{
         return new User();
     }
 
-    function toUserObject($OriginalData){
-        
+    function toUserObject($OriginalData){    //KAREN
+         
     }
 
     function authUser($login, $password){
