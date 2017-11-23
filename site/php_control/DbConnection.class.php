@@ -7,15 +7,22 @@
 require_once '__constants.php';
 
 class DbConnection{
-    //TODO: usar as constantes em "__constants.php"
-    function connectWithConsts(){
-
-
+    function connectWithConsts()
+    {
+        return $this->connect(DB_NAME, DB_HOST, DB_PASSWORD, DB_USERNAME);
     }
-
     function connect($dbname, $dbhost, $dbpswd, $dbusrname){
-
-
+        try
+        {
+            $conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbusrname, $dbpswd);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $conn;
+        }
+        catch(PDOException $e)
+        {
+            echo "Não foi possível conectar ao banco: " . $e->getMessage();
+            return null;
+        }
     }
 
 }
