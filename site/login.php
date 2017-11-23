@@ -3,7 +3,6 @@
  * Created by PhpStorm.
  * User: andre
  */
-
 require_once "php_control/UserControl.class.php";
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     if(isset($_POST['login']) && isset($_POST['pswd'])){
@@ -13,13 +12,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             $uc->loginUser($id);
             $user = $uc->retrieveUser($id);
             if($user -> isIsAdmin()){
-                header('Location: '.'');
+                header('Location: '.'admin_add_user.php');
             }else{
-                header('Location: '.'login.php');
+                header('Location: '.'user_edit_info.php');
             }
         }
     }
 }
+
 
 
 ?>
