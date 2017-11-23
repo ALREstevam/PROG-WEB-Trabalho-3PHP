@@ -6,9 +6,19 @@
 
 
 class DbSetup{
-    /**
-     * Testar se o BD está criado, se não estiver, criar
-     */
+     <?php
+
+	 
+
+ function connect(){
+
+} 
+
+$conn = new DbConnection();
+$conn -> 
+	
+	
+?>
 
 
 }
