@@ -14,8 +14,6 @@ class DbConnection{
     }
 
     function connect($dbname, $dbhost, $dbpswd, $dbusrname){
-
-
     }
 
 }
