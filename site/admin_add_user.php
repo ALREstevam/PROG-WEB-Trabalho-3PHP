@@ -5,7 +5,7 @@
  */
 
 
-require_once "php_control/UserControl.class.php";
+//require_once "php_control/UserControl.class.php";
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     if(isset($_POST['login']) && isset($_POST['pswd'])){
 
@@ -46,15 +46,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         <input type="date" name="birthDate" id="" placeholder="05/09/1990" required>
 
         <label for="cpf">CPF</label>
-        <input type="text" name="cpf" id="cpf" placeholder="687.542.675-79" required>
+        <input type="text" name="cpf" id="cpf" placeholder="687.542.675-79" required pattern="/^([0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}|[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}\-?[0-9]{2})$/">
 
         
         <h2>Dados de contato</h2>
-        $this->complement = $complement;
-        $this->cep = $cep;
-        $this->city = $city;
-        $this->county = $county;
-        $this->isAdmin = $isAdmin;
         
         
         <label for="tel">Número de Telefone</label>
@@ -75,14 +70,20 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         <input type="text" name="compl" id="compl" placeholder="BLOCO X - Apto. 20" required>
 
 
-        <label for=""></label>
-        <input type="text" name="" id="" placeholder="" required>
+        <label for="cep">CEP</label>
+        <input type="text" name="cep" id="cep" placeholder="13560-000" required pattern="^\\d{5}[-]\\d{3}$">
 
-        <label for=""></label>
-        <input type="text" name="" id="" placeholder="" required>
+        <label for="city">Cidade</label>
+        <input type="text" name="city" id="city" placeholder="Novo Algo" required>
+
+        <label for="count">País</label>
+        <input type="text" name="count" id="count" placeholder="Brasil" required>
 
 
+        <h2>Dados adicionais</h2>
 
+        <label for="isadm">É um administrador</label>
+        <input type="checkbox" name="isadm" id="isadm">
 
 
     </form>
