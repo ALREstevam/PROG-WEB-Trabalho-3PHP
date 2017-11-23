@@ -1,5 +1,6 @@
 <?php
 include_once "User.class.php";
+require_once "DbConnection.class.php";
 /**
  * Created by PhpStorm.
  * User: andre
@@ -34,7 +35,8 @@ class UserControl{
     }
 
     function retrieveAllUsers(){   //KAREN
-        
+        $BD = new DbConnection();
+		$conection = $BD->connectWithConsts();
     }
 
     function retrieveUser($id){
