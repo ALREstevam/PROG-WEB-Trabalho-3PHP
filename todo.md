@@ -54,7 +54,7 @@
 |10. |**?**|Não feito|F|`UserControl.class.php  > authUser` retornar um objeto do tipo `User` se existir no banco uma combinação de login e senha ou algum outro valor caso contrário
 |11. |**?**|Não feito|F|`UserControl.class.php  > loginUser` marca um usuário como logado na máquina e guarda seu ID numa `SESSION`
 |12. |**?**|Não feito|F|`UserControl.class.php  > logoutUser` deixa de marcar o usuário como logado
-|13. |**?**|Não feito|F|`UserControl.class.php  > isUserLogged` retorna o id do usuário se ele estiver logado ou algum outro valor caso contrário
+|13. |Pedro|Não feito|F|`UserControl.class.php  > isUserLogged` retorna o id do usuário se ele estiver logado ou algum outro valor caso contrário
 |14. |**?**|Não feito|G|`menu.php` menu que deve ser inserido via SSI nas outras páginas (muda dependendo de qual tipo de usuário está logado)
 |15. |**André**|Não feito|H, D|`admin_add_user.php`tela que aparecerá para o administrador adicionar um usuário novo (incluir um checkbox para definir se o novo usuário é um administrador ou não)
 |16. |**?**|Não feito|I, E|`admin_list_all_users.php`tela que aparecerá para o administrador ver os dados de todos os usuários cadastrados
