@@ -14,7 +14,6 @@ class User{
     private $birthDate;
     private $cpf;
     private $tel;
-    private $address;
     private $street;
     private $number;
     private $district;
@@ -34,7 +33,6 @@ class User{
      * @param $birthDate
      * @param $cpf
      * @param $tel
-     * @param $address
      * @param $street
      * @param $number
      * @param $district
@@ -44,7 +42,7 @@ class User{
      * @param $county
      * @param bool $isAdmin
      */
-    public function __construct($completeName, $userName, $email, $password, $birthDate, $cpf, $tel, $address, $street, $number, $district, $complement, $cep, $city, $county, $isAdmin)
+    public function __construct($completeName, $userName, $email, $password, $birthDate, $cpf, $tel, $street, $number, $district, $complement, $cep, $city, $county, $isAdmin)
     {
         $this->completeName = $completeName;
         $this->userName = $userName;
@@ -53,7 +51,6 @@ class User{
         $this->birthDate = $birthDate;
         $this->cpf = $cpf;
         $this->tel = $tel;
-        $this->address = $address;
         $this->street = $street;
         $this->number = $number;
         $this->district = $district;
@@ -67,9 +64,29 @@ class User{
 
     function __toString()
     {
-        // TODO: Implement __toString() method.
-        // Pode ser utilizado para imprimir o objeto já com o html
-        return "";
+        $rsp = "<div class='user'>";
+        $rsp .= "<span class='userBigOutput'><strong>Nome: </strong> $this->completeName</span><br>";
+        $rsp .= "<hr>";
+        $rsp .= "<span class='userNormalOutput'><strong>E-mail: </strong> $this->email </span><br>";
+        $rsp .= "<span class='userNormalOutput'><strong>Data de nascimento: </strong></span><br> <input type='date' value='$this->birthDate' disabled><br>";
+        $rsp .= "<span class='userNormalOutput'><strong>CPF: </strong> $this->cpf </span><br>";
+        $rsp .= "<span class='userNormalOutput'><strong>Telefone: </strong> $this->tel </span><br>";
+        $rsp .= "<hr>";
+        $rsp .= "<span class='userNormalOutput'><strong>Rua: </strong> $this->street </span><br>";
+        $rsp .= "<span class='userNormalOutput'><strong>Número: </strong>  $this->number </span><br>";
+        $rsp .= "<span class='userNormalOutput'><strong>Bairro: </strong> $this->district </span><br>";
+        $rsp .= "<span class='userNormalOutput'><strong>Complemento: </strong> $this->complement </span><br>";
+        $rsp .= "<span class='userNormalOutput'><strong>CEP: </strong> $this->cep </span><br>";
+        $rsp .= "<span class='userNormalOutput'><strong>Cidade: </strong> $this->city  </span><br>";
+        $rsp .= "<span class='userNormalOutput'><strong>País: </strong>$this->county </span><br>";
+
+        if($this->isIsAdmin()){
+            $rsp .= "<span class='userNormalOutput'><strong>É um administrador: </strong> SIM </span><br>";
+        }else{
+            $rsp .= "<span class='userNormalOutput'><strong>É um administrador: </strong> NÃO </span><br>";
+        }
+        $rsp .= "</div>";
+        return $rsp;
     }
 
     /**

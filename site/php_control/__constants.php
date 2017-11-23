@@ -17,6 +17,7 @@ define("PATH_USER_CONTROL",__DIR__.'/UserControl.class.php');
 define("PATH_DB_CONNECTION",__DIR__.'/DbConnection.class.php');
 
 
+
 /**
  * Executa um var_dump() com formatação
  * @param $var variable to dump

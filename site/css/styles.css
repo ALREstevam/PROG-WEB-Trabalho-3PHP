@@ -177,6 +177,7 @@ button.hCentered{
 .flexrow{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 
@@ -196,3 +197,33 @@ button.hCentered{
 
 
 
+/**************************************************/
+
+.user{
+    font-size: 11pt;
+    padding: 7px;
+    background-color: rgba(137, 137, 137, 0.44);
+    margin: 7px;
+    box-shadow: 12px 12px 70px -16px rgba(0, 0, 0, 0.29);
+    border: solid rgba(45, 49, 47, 0.41) 2px;
+}
+
+.userBigOutput{
+    font-size: 120%;
+    background-color: rgba(72, 76, 74, 1);
+    padding: 10px;
+    color: whitesmoke;
+}
+
+.userNormalOutput{
+    font-size: 100%;
+}
+
+.user input[type=date]{
+    background-color: transparent;
+    border: none;
+    font-size: 100%;
+    font-family: inherit;
+    margin: 0;
+    padding: 0;
+}
