@@ -5,16 +5,19 @@
  */
 
 require_once '__constants.php';
+require_once 'DbConnection.class.php';
+
 
 class DbSetup{
-     <?php
-
+	
 
 $DB = new DbConnection();
-$conn = $DB -> connect($DB_NAME, $DB_HOST, $DB_PASSWORD, $DB_USERNAME);
+$conn = $DB -> connect("information_schema", DB_HOST, DB_PASSWORD, DB_USERNAME);
+}
+
+
 
 ?>
 
 
 
-}
