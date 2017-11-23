@@ -1,5 +1,5 @@
 <?php
-include_once User::class;
+include_once "User.class.php";
 /**
  * Created by PhpStorm.
  * User: andre
@@ -32,7 +32,7 @@ class UserControl{
     function updateUser(User $usr){
 
     }
-    
+
     function retrieveAllUsers(){
         
     }
@@ -42,7 +42,7 @@ class UserControl{
     }
 
     function authUser($login, $password){
-
+        return -1;
     }
 
     function loginUser($uid){
