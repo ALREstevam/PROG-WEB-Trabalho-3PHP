@@ -48,18 +48,34 @@ class UserControl{
     }
 
     function authUser($login, $password){
-        return -1;
-    }
+        //DbConnection->connectWithConsts();
+		$result = mysql_query("SELECT * FROM `USUARIO` WHERE `NOME` = '$login' AND `SENHA`= '$senha'");
+		if(mysql_num_rows ($result) > 0 )
+		{
+			
+		}
+		else{
+			return -1;
+			}
+		}
+
 
     function loginUser($uid){
+		session_start();
+		$_SESSION ['user']=$uid;	
 
     }
 
     function logoutUser(){
-
+		session_destroy();
     }
 
     function isUserLogged(){
-
-    }
+			$logged = $_SESSION['user'];
+			if(isset($logged)){
+				return $logged;  
+			}
+			else
+			return -1; // Não logado
+			}
 }
