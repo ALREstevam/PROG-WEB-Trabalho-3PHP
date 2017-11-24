@@ -11,6 +11,7 @@ class DbConnection{
     {
         return $this->connect(DB_NAME, DB_HOST, DB_PASSWORD, DB_USERNAME);
     }
+    
     function connect($dbname, $dbhost, $dbpswd, $dbusrname){
         try
         {
