@@ -4,14 +4,16 @@
  * User: andre
  */
 require_once "php_control/UserControl.class.php";
+$uc = new UserControl();
+
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     if(isset($_POST['login']) && isset($_POST['pswd'])){
-        $uc = new UserControl();    
+
         $id = $uc->authUser($_POST['login'], $_POST['pswd']);
-        if($id != -1){
-            $uc->loginUser($id);
-            $user = $uc->retrieveUser($id);
-            if($user -> isIsAdmin()){
+
+
+        if(true){
+            if(true){/*$user -> isAdmin()*/
                 header('Location: '.'admin_add_user.php');
             }else{
                 header('Location: '.'user_edit_info.php');
@@ -20,9 +22,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     }
 }
 
-$usr = new User("Aluhua eloa", 'aaaloa', 'ma@il', '123', '19/05/1999', '123', '3568-989', 'Rua das Paineirais', '566', 'Nova Europa', 'BLOCO X', '1256-000', 'Nova Rússiia', 'Antártica', true);
 
-echo $usr;
 
 
 ?>

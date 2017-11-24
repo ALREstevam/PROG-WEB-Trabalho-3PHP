@@ -1,7 +1,7 @@
 body{
     font-family: "Roboto", "Calibri Light", sans-serif;
     padding: 0;
-    margin: -20px 0 0 0;
+    margin: 0 0 0 0;
     /*color: whitesmoke;
     background-color: #545856;*/
     height: 100%;
@@ -27,47 +27,73 @@ h3{
 }
 
 .menu{
-
+    width: 100%;
+    background-color: #2d312f;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: right;
 }
 
-.menu ul{
+@media only screen and (max-width: 750px) {
+    .menu {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
 
+    }
+    .menu a, .menu span{
+        width: 95%;
+    }
 }
 
-.menu ul li{
-
+.menu a{
+    color: whitesmoke;
+    text-decoration: none;
+    padding: 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+    transition: background .1s;
+    font-size: 13pt;
 }
 
-.menu ul li a{
-
+.menu span{
+    color: whitesmoke;
+    font-size: 13pt;
+    float: left;
 }
 
-.menu ul li a:hover{
-
+.menu a:hover{
+    text-decoration: underline;
 }
 
-.section{
-
-}
-
-input {
+input,select {
     display: block;
     border: transparent 2px solid;
     padding: 3px;
     transition: border 1s;
 }
 
-input:hover{
-
+input:hover, select:hover{
+    border: rgba(16, 87, 178, 0.55) 2px solid;
+    background-color: #e1f4f2;
 }
 
-input:valid {
+input:valid, select:valid {
     border: rgba(10, 178, 50, 0.55) 2px solid;
+    background-color: #ddf4e2;
 }
 
-input:invalid {
+input:invalid, select:invalid {
     border: rgba(178, 19, 15, 0.55) 2px solid;
+    background-color: #f4e6de;
 }
+
+input:focus, select:focus {
+    border: rgba(16, 87, 178, 0.55) 2px solid;
+    background-color: #e1f4f2;
+}
+
+
 
 .large{
     font-size: 130%;
@@ -105,40 +131,40 @@ button.button:hover {
     background-color: rgba(17, 17, 17, 0.60);
 }
 
-button.redButton {
+button.red, a.red{
     background-color: #cb4b37;
     transition: background 0.5s;
 }
 
-button.red:hover {
+button.red:hover, a.red:hover {
     background-color: #b24632;
 }
 
-button.green {
+button.green, a.green {
     background-color: #3ada76;
     transition: background 0.5s;
 }
 
-button.green:hover {
+button.green:hover, a.green:hover{
     background-color: #3bb95c;
 }
 
-button.blue {
+button.blue, a.blue {
     background-color: #177bbb;
     transition: background 0.5s;
 }
 
-button.blue:hover {
+button.blue:hover, a.blue:hover {
     background-color: #1667a1;
 }
 
-button.black {
+button.black, a.black {
     background-color: #2d312f;
     transition: background 0.5s;
     color: whitesmoke;
 }
 
-button.black:hover {
+button.black:hover, a.black:hover {
     background-color: #484c4a;
 }
 
@@ -178,6 +204,7 @@ button.hCentered{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+
 }
 
 
@@ -189,26 +216,50 @@ button.hCentered{
 
 #loginDiv{
     padding: 50px;
-    background-color: rgba(0, 0, 0, 0.16);
+    background-color: rgba(0, 0, 0, 0.08);
     width: 50%;
     height:50%;
     border: solid rgba(0, 0, 0, 0.44);
+
 }
 
+#newUserDiv{
+
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.08);
+    width: 70%;
+    border: solid rgba(0, 0, 0, 0.44);
+}
+
+#newUserDiv form{
+    justify-content: center;
+}
+
+#newUserDiv form div{
+    padding: 10px;
+    margin: 10px;
+    border: solid 2px rgba(72, 76, 74, 0.16);
+    flex-grow: 3;
+}
 
 
 /**************************************************/
 
 .user{
+    object-fit: cover;
+    display: block;
     font-size: 11pt;
     padding: 7px;
     background-color: rgba(137, 137, 137, 0.44);
     margin: 7px;
     box-shadow: 12px 12px 70px -16px rgba(0, 0, 0, 0.29);
     border: solid rgba(45, 49, 47, 0.41) 2px;
+    flex-grow: 3;
 }
 
 .userBigOutput{
+    display: flex;
+    text-align: center;
     font-size: 120%;
     background-color: rgba(72, 76, 74, 1);
     padding: 10px;

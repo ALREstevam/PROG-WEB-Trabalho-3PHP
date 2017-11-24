@@ -5,12 +5,10 @@
  */
 
 class User{
-
     private $completeName;
     private $userName;
     private $email;
     private $password;
-
     private $birthDate;
     private $cpf;
     private $tel;
@@ -21,8 +19,36 @@ class User{
     private $cep;
     private $city;
     private $county;
-
     private $isAdmin = false;
+    private $dataCadastro;
+
+    private $varList = [
+        ["completeName", "nome_completo"],
+        ["userName", "UN_nome_usuario"],
+        ["email", "UN_email"],
+        ["password", "senha"],
+        ["birthDate", "data_nasc"],
+        ["cpf", "PK_cpf"],
+        ["tel", "tel"],
+        ["street", "rua"],
+        ["number", "numero"],
+        ["district", "bairro"],
+        ["complement", "complemento"],
+        ["cep", "cep"],
+        ["city", "cidade"],
+        ["county", "pais"],
+        ["isAdmin", "is_adm"],
+        ["dataCadastro", "data_cadastro"],
+    ];
+    function __set($name, $value)
+    {
+        foreach ($this->varList as $name){
+            if($name == $name[0] || $name == $name[1]){
+
+                
+            }
+        }
+    }
 
     /**
      * User constructor.
@@ -80,14 +106,17 @@ class User{
         $rsp .= "<span class='userNormalOutput'><strong>Cidade: </strong> $this->city  </span><br>";
         $rsp .= "<span class='userNormalOutput'><strong>País: </strong>$this->county </span><br>";
 
-        if($this->isIsAdmin()){
-            $rsp .= "<span class='userNormalOutput'><strong>É um administrador: </strong> SIM </span><br>";
+        if($this->isAdmin()){
+            $rsp .= "<span class='userNormalOutput'><strong>É um administrador: </strong> Sim </span><br>";
         }else{
-            $rsp .= "<span class='userNormalOutput'><strong>É um administrador: </strong> NÃO </span><br>";
+            $rsp .= "<span class='userNormalOutput'><strong>É um administrador: </strong> Não </span><br>";
         }
         $rsp .= "</div>";
         return $rsp;
     }
+
+
+
 
     /**
      * @return mixed
@@ -332,7 +361,7 @@ class User{
     /**
      * @return boolean
      */
-    public function isIsAdmin()
+    public function isAdmin()
     {
         return $this->isAdmin;
     }
