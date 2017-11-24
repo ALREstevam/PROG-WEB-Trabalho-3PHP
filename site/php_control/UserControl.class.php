@@ -48,11 +48,15 @@ class UserControl{
     }
 
     function authUser($login, $password){
-        //DbConnection->connectWithConsts();
-		$result = mysql_query("SELECT * FROM `USUARIO` WHERE `NOME` = '$login' AND `SENHA`= '$senha'");
-		if(mysql_num_rows ($result) > 0 )
-		{
+        $var= new DbConnection();
+		$con= $var->connectWithConsts();
+		if($con!=null){
+		try{
+			$sb=$con->query("SELECT * FROM 'tbl_users' WHERE `UN_nome_usuario`='$login' AND `senha`='$password'")
 			
+		if(->rowCount(($result) > 0 ))
+		{
+			///retorno de objeto
 		}
 		else{
 			return -1;
