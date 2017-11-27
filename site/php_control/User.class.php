@@ -19,36 +19,8 @@ class User{
     private $cep;
     private $city;
     private $county;
-    private $isAdmin = false;
+    private $isAdmin;
     private $dataCadastro;
-
-    private $varList = [
-        ["completeName", "nome_completo"],
-        ["userName", "UN_nome_usuario"],
-        ["email", "UN_email"],
-        ["password", "senha"],
-        ["birthDate", "data_nasc"],
-        ["cpf", "PK_cpf"],
-        ["tel", "tel"],
-        ["street", "rua"],
-        ["number", "numero"],
-        ["district", "bairro"],
-        ["complement", "complemento"],
-        ["cep", "cep"],
-        ["city", "cidade"],
-        ["county", "pais"],
-        ["isAdmin", "is_adm"],
-        ["dataCadastro", "data_cadastro"],
-    ];
-    function __set($name, $value)
-    {
-        foreach ($this->varList as $name){
-            if($name == $name[0] || $name == $name[1]){
-
-                
-            }
-        }
-    }
 
     /**
      * User constructor.
@@ -68,7 +40,23 @@ class User{
      * @param $county
      * @param bool $isAdmin
      */
-    public function __construct($completeName, $userName, $email, $password, $birthDate, $cpf, $tel, $street, $number, $district, $complement, $cep, $city, $county, $isAdmin)
+    public function __construct(
+        $completeName = null,
+        $userName = null,                                    
+        $email = null,                                       
+        $password = null,                                    
+        $birthDate = null,                                   
+        $cpf = null,                                         
+        $tel = null,                                         
+        $street = null,                                      
+        $number = null,                                      
+        $district = null,                                    
+        $complement = null,                                  
+        $cep = null,                                         
+        $city = null,                                        
+        $county = null,                                      
+        $isAdmin = false
+    )
     {
         $this->completeName = $completeName;
         $this->userName = $userName;
@@ -85,6 +73,84 @@ class User{
         $this->city = $city;
         $this->county = $county;
         $this->isAdmin = $isAdmin;
+    }
+
+    private $varList = [
+        "completeName" =>  ["completeName"      ,         "nome_completo"       ],
+        "userName"     =>  ["userName"          ,         "UN_nome_usuario"     ],
+        "email"        =>  ["email"             ,         "UN_email"            ],
+        "password"     =>  ["password"          ,         "senha"               ],
+        "birthDate"    =>  ["birthDate"         ,         "data_nasc"           ],
+        "cpf"          =>  ["cpf"               ,         "PK_cpf"              ],
+        "tel"          =>  ["tel"               ,         "tel"                 ],
+        "street"       =>  ["street"            ,         "rua"                 ],
+        "number"       =>  ["number"            ,         "numero"              ],
+        "district"     =>  ["district"          ,         "bairro"              ],
+        "complement"   =>  ["complement"        ,         "complemento"         ],
+        "cep"          =>  ["cep"               ,         "cep"                 ],
+        "city"         =>  ["city"              ,         "cidade"              ],
+        "county"       =>  ["county"            ,         "pais"                ],
+        "isAdmin"      =>  ["isAdmin"           ,         "is_adm"              ],
+        "dataCadastro" =>  ["dataCadastro"      ,         "data_cadastro"       ],
+    ];
+
+    function __set($name, $value)
+    {
+        foreach ($this->varList as $key => $possibleVarName){
+            if(in_array($name, $possibleVarName)){
+
+                switch ($key){
+                    case "completeName":
+                        $this->completeName = $value;
+                        break;
+                    case "userName":
+                        $this->userName = $value;
+                        break;
+                    case "email":
+                        $this->email = $value;
+                        break;
+                    case "password":
+                        $this->password = $value;
+                        break;
+                    case "birthDate":
+                        $this->birthDate = $value;
+                        break;
+                    case "cpf":
+                        $this->cpf = $value;
+                        break;
+                    case "tel":
+                        $this->tel = $value;
+                        break;
+                    case "street":
+                        $this->street = $value;
+                        break;
+                    case "number":
+                        $this->number = $value;
+                        break;
+                    case "district":
+                        $this->district = $value;
+                        break;
+                    case "complement":
+                        $this->complement = $value;
+                        break;
+                    case "cep":
+                        $this->cep = $value;
+                        break;
+                    case "city":
+                        $this->city = $value;
+                        break;
+                    case "county":
+                        $this->county = $value;
+                        break;
+                    case "isAdmin":
+                        $this->isAdmin = $value;
+                        break;
+                    case "dataCadastro":
+                        $this->dataCadastro = $value;
+                        break;
+                }
+            }
+        }
     }
 
 

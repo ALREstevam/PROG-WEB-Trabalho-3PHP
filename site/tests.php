@@ -10,5 +10,8 @@ $user = $uc->retrieveUserById('000.000.000-00');
 
 var_dump_pre($user);
 
+echo $user;
+ 
+
 
 ?>

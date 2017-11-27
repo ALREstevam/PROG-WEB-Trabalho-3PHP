@@ -43,7 +43,7 @@ class UserControl{
             try{
                 $stmt = $conn->query("SELECT * FROM tbl_users WHERE PK_cpf = '$id'");
                 while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    return $this->toUserObject($row);
+                    return $this->toUserObject2($row);
                 }
             }catch (Exception $e){
                 echo "Erro ao recuperar usuário: $e";
@@ -65,8 +65,16 @@ class UserControl{
          return null;
     }
 
+    function toUserObject2($originalData){
+        $usr = new User();
+        foreach ($originalData as $column => $value){
+            $usr->__set($column, $value);
+        }
+        return $usr;
+    }
+
     function authUser($login, $password){
-        return false;
+        return "000.000.000-00";
     }
 
     function loginUser($uid){

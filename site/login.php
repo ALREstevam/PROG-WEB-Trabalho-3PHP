@@ -3,26 +3,10 @@
  * Created by PhpStorm.
  * User: andre
  */
-require_once "php_control/UserControl.class.php";
-$uc = new UserControl();
-
-if($_SERVER['REQUEST_METHOD'] == "POST"){
-    if(isset($_POST['login']) && isset($_POST['pswd'])){
-
-        $id = $uc->authUser($_POST['login'], $_POST['pswd']);
-
-
-        if(true){
-            if(true){/*$user -> isAdmin()*/
-                header('Location: '.'admin_add_user.php');
-            }else{
-                header('Location: '.'user_edit_info.php');
-            }
-        }
-    }
-}
-
-
+require_once "php_control/FormHandler.class.php";
+require_once "util/Util.php";
+$formHandler = new FormHandler();
+$formHandler->handle();
 
 
 ?>
@@ -34,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <title>Login</title>
 </head>
-<body>
+<body class="login">
 
 
 <div class="hCentered vCentered shadowed" id="loginDiv">
@@ -47,7 +31,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         <input type="password" name="pswd" id="pswd" required placeholder="Senha" class="hCentered sticky large">
         <br>
         <button type="submit" class="button black hCentered sticky large">Logar</button>
+
     </form>
+    <br>
+    <br>
+    <?php  echo getAlertBox("Status", $formHandler->getStatus()[1], $formHandler->getStatus()[0], $formHandler->getStatus()[1] == "" ? false : true) ?>
 </div>
 
 

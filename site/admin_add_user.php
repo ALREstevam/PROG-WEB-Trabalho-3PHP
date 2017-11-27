@@ -7,28 +7,11 @@
 
 require_once "php_control/UserControl.class.php";
 require_once "util/Util.php";
-$statusMsg = "Nenhum formulário submetido";
 
-$formInputName = 
-    [
-        "completeName",
-        "userName",
-        "userEmail",
-        "password",
-        "birthDate",
-        "cpf",
-        "tel",
-        "strt",
-        "num",
-        "distr",
-        "compl",
-        "cep",
-        "city",
-        "count",
-        "isadm"
-    ];
+$statusMsg = "nenhum formulário submetido";
+$statusType = "info";
 
-$frmv = [];
+
 
 
 function getIfSubmitedToHtml($field){
@@ -56,11 +39,20 @@ function valueToVar($stack, $field){
 }
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+    $formInputName =
+        [
+            "completeName","userName","userEmail","password","birthDate","cpf","tel","strt","num","distr","compl","cep","city","count","isadm"
+        ];
+
+    $frmv = [];
+    
     foreach ($formInputName as $field){
         if(isset($_POST[$field])){
             $frmv[$field] = $_POST[$field];
         }else{
             $statusMsg = "campo $field não foi encontrado, impossível cadastrar o usuário.";
+            $statusType = "alert";
             return;
         }
     }
@@ -86,12 +78,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
     if($res){
         $statusMsg = "Operação realizada com sucesso.";
-
+        $statusType = "success";
         $_POST = null;
         $frmv = null;
 
     }else{
         $statusMsg = "Erro ao realizar a operação.";
+        $statusType = "error";
     }
 }
 
@@ -197,7 +190,10 @@ require_once "menu.php";
 
 
     </form>
-    <span><strong>Status:</strong> <?php echo"$statusMsg" ?> </span>
+    <?php
+
+        echo getAlertBox("Status", $statusMsg, $statusType, true);
+    ?>
 </div>
 
 

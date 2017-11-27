@@ -24,3 +24,41 @@ function getUserExample(){
     $rand_key = array_rand($usrLst, 1);
     return $usrLst[$rand_key];
 }
+
+
+function getAlertBox($name, $message, $type = "blue",$valid = true){
+    if($valid){
+
+        switch ($type){
+            case "blue":
+                break;
+            case "red":
+                break;
+            case "green":
+                break;
+            case "alert":
+                $type = "yellow";
+                break;
+            case "info":
+                $type = "blue";
+                break;
+            case "error":
+                $type = "red";
+                break;
+            case "success":
+                $type = "green";
+                break;
+            default:
+                $type = "blue";
+                break;
+    }
+
+        return "
+            <div class='alert $type'>
+                <span class='closebtn' onclick='this.parentElement.style.display=\"none\";'>&times;</span> 
+                <span><strong>$name:</strong> $message</span>
+            </div>
+        ";
+    }
+    return "";
+}

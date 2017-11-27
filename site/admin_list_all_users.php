@@ -35,9 +35,6 @@ require_once "menu.php";
     ?>
     </div>
 </div>
-
-
-
 </body>
 </html>
 

@@ -13,7 +13,7 @@ if($usr || true){
     if($usr->isAdmin() || true){
         echo getMenuGerente($usr->getUserName());
     }else{
-        echo getMenuUser();
+        echo getMenuUser($usr->getUserName());
     }
 }
 ?>
