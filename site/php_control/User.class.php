@@ -265,9 +265,17 @@ class User{
     }
 
     /**
+ * @return mixed
+ */
+    public function getCpf()
+    {
+        return $this->cpf;
+    }
+
+    /**
      * @return mixed
      */
-    public function getCpf()
+    public function getId()
     {
         return $this->cpf;
     }
