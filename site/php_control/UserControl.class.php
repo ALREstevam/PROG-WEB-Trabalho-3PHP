@@ -74,18 +74,48 @@ class UserControl{
     }
 
     function authUser($login, $password){
+<<<<<<< HEAD
         return "000.000.000-00";
     }
+=======
+        $var= new DbConnection();
+		$con= $var->connectWithConsts();
+		if($con!=null){
+		try{
+			$sb=$con->query("SELECT * FROM 'tbl_users' WHERE `UN_nome_usuario`='$login' AND `senha`='$password'")
+			
+		if(->rowCount(($result) > 0 ))
+		{
+			///retorno de objeto
+		}
+		else{
+			return -1;
+			}
+		}
+
+>>>>>>> origin/Pedro
 
     function loginUser($uid){
+		session_start();
+		$_SESSION ['user']=$uid;	
 
     }
 
     function logoutUser(){
-
+		session_destroy();
     }
 
     function isUserLogged(){
+<<<<<<< HEAD
         return true;
     }
+=======
+			$logged = $_SESSION['user'];
+			if(isset($logged)){
+				return $logged;  
+			}
+			else
+			return -1; // Não logado
+			}
+>>>>>>> origin/Pedro
 }
