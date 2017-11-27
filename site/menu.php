@@ -9,11 +9,12 @@ require_once "menu_gerente.php";
 require_once "menu_user.php";
 $uc = new UserControl();
 $usr = $uc->retrieveLoggedUser();
-if($usr || true){
-    if($usr->isAdmin() || true){
+
+if($usr){
+    if($usr->isAdmin()){
         echo getMenuGerente($usr->getUserName());
     }else{
-        echo getMenuUser();
+        echo getMenuUser($usr->getUserName());
     }
 }
 ?>

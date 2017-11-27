@@ -7,22 +7,28 @@ require_once "DbConnection.class.php";
  *
  * TODO: Add a user
  * TODO: Update a user
- * TODO: List the data of all users
- * TODO: List the data of one user
  *
  */
 
 
 
 class UserControl{
-    function addUpdateUser(User $usr){
 
-        return true;
+    /**
+     * Adicionar um usuário se o CPF não existir, atualizar se já exisitr (testar se é novo ou não e chamar
+     * addUser OU updateUser)
+     * @param User $usr
+     */
+    function addUpdateUser(User $usr){
+		
+		
+		
+        
     }
 
     function addUser(User $usr){
 
-        return true;
+
     }
 
     function updateUser(User $usr){
@@ -32,8 +38,19 @@ class UserControl{
     function retrieveAllUsers(){   //KAREN
         $BD = new DbConnection();
 		$conection = $BD->connectWithConsts();
+<<<<<<< HEAD
+		$conection->exec( SELECT * FROM tbl_users );
+    }
+
+    function retrieveUser($id){
+        return new User();
+=======
 		$result = $conection->query("SELECT * FROM tbl_users");
-		$result->fetchAll();
+        $rsp = [];
+        while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            $rsp[] = $this->toUserObject2($row);
+        }
+        return $rsp;
     }
 
     function retrieveUserById($id){
@@ -43,7 +60,7 @@ class UserControl{
             try{
                 $stmt = $conn->query("SELECT * FROM tbl_users WHERE PK_cpf = '$id'");
                 while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    return $this->toUserObject($row);
+                    return $this->toUserObject2($row);
                 }
             }catch (Exception $e){
                 echo "Erro ao recuperar usuário: $e";
@@ -54,30 +71,79 @@ class UserControl{
     }
 
     function retrieveLoggedUser(){
-        /*
-         * Retornar um objeto User se houver algum logado ou false caso contrário
-         * */
-
-        return new User("Ana", 'abc', 'maisid@il66', '1', '2013-01-08', '123', '3568-989', 'Rua 2', '566', 'Europa', '', '1256-000', 'Bairro a', 'Portugal', true);
+       if($id = $this->isUserLogged()){
+           return $this->retrieveUserById($id);
+       }
+        return null;
+>>>>>>> 56bbfc98a484a4dc6b7da42073dcc4fde0f3d6ae
     }
 
     function toUserObject($OriginalData){    //KAREN
-         return null;
+         
+    }
+
+    function toUserObject2($originalData){
+        $usr = new User();
+        foreach ($originalData as $column => $value){
+            $usr->__set($column, $value);
+        }
+        return $usr;
     }
 
     function authUser($login, $password){
+<<<<<<< HEAD
+        return -1;
+=======
+        $dbc = new DbConnection();
+        $conn = $dbc->connectWithConsts();
+        if($conn != null){
+            try{
+                $queryStr = "SELECT * FROM tbl_users WHERE UN_nome_usuario = '$login' AND senha = '$password'";
+                $stmt = $conn->query($queryStr);
+                while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    return $this->toUserObject2($row);
+                }
+            }catch (Exception $e){
+                echo "Erro ao recuperar usuário: $e";
+                return false;
+            }
+        }
         return false;
+>>>>>>> 56bbfc98a484a4dc6b7da42073dcc4fde0f3d6ae
     }
 
+
     function loginUser($uid){
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+		$_SESSION ['user'] = $uid;
 
     }
 
     function logoutUser(){
-
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        session_unset();
+		session_destroy();
     }
 
     function isUserLogged(){
-        return true;
+<<<<<<< HEAD
+
     }
+=======
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if(isset($_SESSION['user'])){
+            return $_SESSION['user'];
+        }
+        else
+            return false; // Não logado
+        }
+
+>>>>>>> 56bbfc98a484a4dc6b7da42073dcc4fde0f3d6ae
 }
