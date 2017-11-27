@@ -21,7 +21,7 @@ class DbConnection{
         }
         catch(PDOException $e)
         {
-            echo "<h1>Não foi possível conectar ao banco:</h1>" . $e->getMessage();
+            echo "<p>Não foi possível conectar ao banco:</p>" . $e->getMessage();
             return null;
         }
     }

@@ -7,7 +7,9 @@ body{
     height: 100%;
     color: #2d312f;
     background-color: whitesmoke;
+}
 
+.login{
 }
 
 h1{
@@ -21,6 +23,54 @@ h2{
 h3{
 
 }
+
+
+.alert{
+    background-color: #ddf4e2;
+    color: #2d312f;
+    padding: 20px;
+    border-radius:4px;
+    min-height: 20px;
+    width: 80%;
+    font-size: 14pt;
+    justify-content: center;
+    margin: 0 auto;
+    transition: 0.3s;
+}
+
+.alert.red{
+    background-color: #f44336; /* Red */
+    color: white;
+
+}
+.alert.green{
+    background-color: #6bbc6e; /* Red */
+    color: white;
+}
+.alert.blue{
+    background-color: #47a7f4; /* Red */
+    color: white;
+}
+.alert.yellow{
+    background-color: #fda92c; /* Red */
+    color: white;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
 
 .user{
 
@@ -179,7 +229,7 @@ button.black:hover, a.black:hover {
 }
 
 .vCentered{
-    overflow: auto;
+    /*overflow: auto;*/
     margin: auto;
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
@@ -220,11 +270,9 @@ button.hCentered{
     width: 50%;
     height:50%;
     border: solid rgba(0, 0, 0, 0.44);
-
 }
 
 #newUserDiv{
-
     padding: 50px;
     background-color: rgba(0, 0, 0, 0.08);
     width: 70%;

@@ -5,11 +5,13 @@
  */
 require_once "php_control/UserControl.class.php";
 require_once "php_control/User.class.php";
-require_once "util/Util.php";
+require_once "php_control/Util.php";
+require_once "php_control/UserAuth.class.php";
+$ua = new UserAuth(AccessType::ADMIN);
 
 
-/*APENAS PARA TESTAR!*/
-$usrLst = getUserListExample(20);
+$uc = new UserControl();
+$usrLst = $uc->retrieveAllUsers();
 
 ?>
 
@@ -35,9 +37,6 @@ require_once "menu.php";
     ?>
     </div>
 </div>
-
-
-
 </body>
 </html>
 

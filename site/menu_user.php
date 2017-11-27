@@ -1,10 +1,13 @@
 <?php
-function getMenuUser()
+function getMenuUser($username)
 {
-    return '
-	<a href="user_see_info.php" class="blue">Visualizar meus dados</a>
-	<a href="user_edit_info.php" class="blue">Alterar meus dados</a>
-	<a href="logoutUser.php" class="red">Sair</a>
-    ';
+    return "
+        <nav class='menu'>
+            <span>Logado como: $username</span>
+            <a href='user_see_info.php' class='blue'>Visualizar meus dados</a>
+            <a href='user_edit_info.php' class='blue'>Alterar meus dados</a>
+            <a href='php_control/FormHandler.class.php?do_logout=' class='red'>Sair</a>
+        </nav>
+    ";
 }
 ?>
