@@ -95,7 +95,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Administrador - Novo Usuário</title>
+    <link rel="icon" href="images/fav.png" sizes="32x32" type="image/png">
+    <title>Novo Usuário</title>
 </head>
 <body>
 <?php
@@ -181,16 +182,10 @@ require_once "menu.php";
             <input type="radio" name="isadm" id="isadmNo" class="" value="no" <?php  echo getIfSubmitedToHtml('isadm') == 'no' ? 'checked' : ''  ?>>
 
             <br><br>
-
-
-
-<<<<<<< HEAD
-            <button class="button green sticky" type="submit">Cadastrar</button>
-=======
+            
         <div>
             <h2>Confirmar ou cancelar operação</h2>
             <button class="button green sticky" type="submit">Cadastrar / Atualizar </button>
->>>>>>> Tbranch
             <button class="button red sticky" type="reset">Limpar</button>
         </div>
 
