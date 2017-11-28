@@ -1,27 +1,27 @@
 <?php
 include_once "User.class.php";
 require_once "DbConnection.class.php";
+require_once "Util.php";
 /**
  * Created by PhpStorm.
  * User: andre
+<<<<<<< HEAD
  *
  * TODO: Add a user
  * TODO: Update a user
  * TODO: List the data of all users
  * TODO: List the data of one user
  *
+=======
+>>>>>>> Tbranch
  */
 
 
 
 class UserControl{
 
-    /**
-     * Adicionar um usuário se o CPF não existir, atualizar se já exisitr (testar se é novo ou não e chamar
-     * addUser OU updateUser)
-     * @param User $usr
-     */
     function addUpdateUser(User $usr){
+<<<<<<< HEAD
 	   $BD = new DbConnection();
 	   $conn = $BD -> connectWithConsts();
 	   $CPF
@@ -45,23 +45,115 @@ class UserControl{
             try{
                 $conn->exec("INSERT INTO tbl_users VALUES('$usr->getCpf()',' $usr->getCompleteName()',' $usr->getUserName()',' $usr->getPassword()',' $usr->getEmail()',' $usr->getBirthDate()',' $usr->getTel()',' $usr->getStreet()',' $usr->getNumber()',' $usr->getDistrict()',' $usr->getComplement()',' $usr->getCity()',' $usr->getCep()',' $usr->getCounty()','$usr->isAdmin()',' $usr->null ')");
                 
+=======
+        $user = $this -> retrieveUserById($usr -> getId());
+        if ($user == null){
+            return $this -> addUser($usr);
+        }
+        else{
+            return $this -> updateUser($usr);
+        }
+    }
+
+    function addUser(User $usr){
+        $dbc = new DbConnection();
+        $conn = $dbc->connectWithConsts();
+        if($conn != null){
+            try{
+
+                $isAdm = $usr->isAdmin() == true ? "true" : "false";
+
+                $query = "
+                INSERT INTO tbl_users (
+                    PK_cpf,         
+                    nome_completo,  
+                    UN_nome_usuario,
+                    senha,          
+                    UN_email,       
+                    data_nasc,     
+                    tel,            
+                    rua,            
+                    numero,         
+                    bairro,         
+                    complemento,    
+                    cidade,         
+                    cep,            
+                    pais,           
+                    is_adm        
+                )
+                VALUES
+                (
+                 '".$usr->getCpf() ."',
+                 '".$usr->getCompleteName() ."',
+                 '".$usr->getUserName() ."',
+                 '".$usr->getPassword() ."',
+                 '".$usr->getEmail() ."',
+                 '".$usr->getBirthDate() ."',
+                 '".$usr->getTel() ."',
+                 '".$usr->getStreet() ."',
+                 '".$usr->getNumber() ."',
+                 '".$usr->getDistrict() ."',
+                 '".$usr->getComplement() ."',
+                 '".$usr->getCity() ."',
+                 '".$usr->getCep() ."',
+                 '".$usr->getCounty() ."',
+                  ".$isAdm ."
+                )
+                ";
+               $conn->exec($query);
+                return true;
+>>>>>>> Tbranch
             }catch (Exception $e){
                 echo "Erro ao Adicionar usuário: $e";
                 return null;
             }
         }
         return null;
+<<<<<<< HEAD
 >>>>>>> atzs-a
+=======
+>>>>>>> Tbranch
     }
        
 
     function updateUser(User $usr){
+<<<<<<< HEAD
 		$dbc = new DbConnection();
         $conn = $dbc->connectWithConsts();
         if($conn != null){
             try{
                 $conn->exec("UPDATE  tbl_users SET ( PK_cpf = '$usr->getCpf()', nome_completo = '$usr->getCompleteName()',UN_nome_usuario = '$usr->getUserName()', senha = '$usr->getPassword()',UN_email = '$usr->getEmail()', data_nasc = '$usr->getBirthDate()',tel =  '$usr->getTel()', rua= '$usr->getStreet()',numero= '$usr->getNumber()',bairro= '$usr->getDistrict()', complemento='$usr->getComplement()', cidade= '$usr->getCity()',cep= '$usr->getCep()',pais= '$usr->getCounty()', is_adm= '$usr->isAdmin()) where PK_cpf = '$usr->getCpf()')");
                 
+=======
+        $dbc = new DbConnection();
+        $conn = $dbc->connectWithConsts();
+        if($conn != null){
+            try{
+                $isAdm = $usr->isAdmin() == true ? "true" : "false";
+                $query =
+                    "UPDATE  tbl_users SET "
+                    ." nome_completo = '".$usr->getCompleteName()
+                    ."',UN_nome_usuario = '".$usr-> getUserName()
+                    ."', senha = '".$usr->getPassword()
+                    ."', UN_email = '".$usr->getEmail()
+                    ."', data_nasc = '".$usr->getBirthDate()
+                    ."', tel = '".$usr->getTel()
+                    ."', rua= '".$usr->getStreet()
+                    ."', numero= '".$usr->getNumber()
+                    ."', bairro= '".$usr->getDistrict()
+                    ."', complemento='".$usr->getComplement()
+                    ."', cidade= '".$usr->getCity()
+                    ."', cep= '".$usr->getCep()
+                    ."', pais= '".$usr->getCounty()
+                    ."', is_adm=".$isAdm
+                    ." WHERE(PK_cpf = '".$usr->getCpf()."')";
+
+                //var_dump_pre($query);
+
+
+                $conn->exec($query);
+                return true;
+>>>>>>> Tbranch
             }catch (Exception $e){
                 echo "Erro ao Atualizar usuário: $e";
                 return null;
@@ -73,6 +165,7 @@ class UserControl{
 
     function retrieveAllUsers(){   //KAREN
         $BD = new DbConnection();
+<<<<<<< HEAD
 		$conection = $BD->connectWithConsts();
 		$conection->exec( SELECT * FROM tbl_users );
     }
@@ -81,6 +174,19 @@ class UserControl{
         return new User();
 		$result = $conection->query("SELECT * FROM tbl_users");
 		$result->fetchAll();
+=======
+        $conection = $BD->connectWithConsts();
+        $result = $conection->query("SELECT * FROM tbl_users");
+        $rsp = [];
+        while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            $rsp[] = $this->toUserObject2($row);
+        }
+        return $rsp;
+>>>>>>> Tbranch
+    }
+
+    function retrieveUser($id){
+        return $this->retrieveUserById($id);
     }
 
     function retrieveUserById($id){
@@ -93,7 +199,7 @@ class UserControl{
                     return $this->toUserObject2($row);
                 }
             }catch (Exception $e){
-                echo "Erro ao recuperar usuário: $e";
+                echo "Erro ao recuperar usuário: ".$e->getMessage();
                 return null;
             }
         }
@@ -106,6 +212,7 @@ class UserControl{
            return $this->retrieveUserById($id);
        }
         return null;
+<<<<<<< HEAD
 >>>>>>> 56bbfc98a484a4dc6b7da42073dcc4fde0f3d6ae
 =======
         /*
@@ -114,6 +221,8 @@ class UserControl{
 
         return new User("Ana", 'abc', 'maisid@il66', '1', '2013-01-08', '123', '3568-989', 'Rua 2', '566', 'Europa', '', '1256-000', 'Bairro a', 'Portugal', true);
 >>>>>>> atzs-a
+=======
+>>>>>>> Tbranch
     }
 
     function toUserObject($OriginalData){    //KAREN
@@ -131,8 +240,11 @@ class UserControl{
     function authUser($login, $password){
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         return -1;
 =======
+=======
+>>>>>>> Tbranch
         $dbc = new DbConnection();
         $conn = $dbc->connectWithConsts();
         if($conn != null){
@@ -148,10 +260,13 @@ class UserControl{
             }
         }
         return false;
+<<<<<<< HEAD
 >>>>>>> 56bbfc98a484a4dc6b7da42073dcc4fde0f3d6ae
 =======
         return "000.000.000-00";
 >>>>>>> atzs-a
+=======
+>>>>>>> Tbranch
     }
 =======
         $var= new DbConnection();
@@ -172,9 +287,16 @@ class UserControl{
 >>>>>>> origin/Pedro
 
     function loginUser($uid){
+<<<<<<< HEAD
 		session_start();
 		$_SESSION ['user']=$uid;	
 
+=======
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+		$_SESSION ['user'] = $uid;
+>>>>>>> Tbranch
     }
 
     function logoutUser(){
@@ -184,20 +306,24 @@ class UserControl{
     function isUserLogged(){
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     }
 =======
+=======
+>>>>>>> Tbranch
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
-
         if(isset($_SESSION['user'])){
             return $_SESSION['user'];
         }
         else
             return false; // Não logado
         }
+}
 
+<<<<<<< HEAD
 >>>>>>> 56bbfc98a484a4dc6b7da42073dcc4fde0f3d6ae
 =======
         return true;
@@ -213,3 +339,5 @@ class UserControl{
 >>>>>>> origin/Pedro
 >>>>>>> atzs-a
 }
+=======
+>>>>>>> Tbranch

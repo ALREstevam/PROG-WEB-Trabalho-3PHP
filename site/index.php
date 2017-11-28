@@ -6,4 +6,8 @@ require_once 'php_control/User.class.php';
 header('Location: '.'login.php');
 
 
+
+
+
+
 ?>
