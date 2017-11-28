@@ -2,26 +2,9 @@ body{
     font-family: "Roboto", "Calibri Light", sans-serif;
     padding: 0;
     margin: 0 0 0 0;
-    /*color: whitesmoke;
-    background-color: #545856;*/
     height: 100%;
     color: #2d312f;
     background-color: whitesmoke;
-}
-
-.login{
-}
-
-h1{
-
-}
-
-h2{
-
-}
-
-h3{
-
 }
 
 
@@ -44,15 +27,15 @@ h3{
 
 }
 .alert.green{
-    background-color: #6bbc6e; /* Red */
+    background-color: #6bbc6e; /* Green */
     color: white;
 }
 .alert.blue{
-    background-color: #47a7f4; /* Red */
+    background-color: #47a7f4; /* Blue */
     color: white;
 }
 .alert.yellow{
-    background-color: #fda92c; /* Red */
+    background-color: #fda92c; /* Yellow */
     color: white;
 }
 
@@ -93,6 +76,14 @@ h3{
     }
     .menu a, .menu span{
         width: 95%;
+    }
+
+    #newUserDiv{
+        width: 85% !important;
+    }
+
+    #loginDiv{
+        width: 85% !important;
     }
 }
 

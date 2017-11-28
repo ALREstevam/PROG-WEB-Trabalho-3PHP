@@ -5,10 +5,6 @@ require_once "Util.php";
 /**
  * Created by PhpStorm.
  * User: andre
- *
- * TODO: Add a user
- * TODO: Update a user
- *
  */
 
 
@@ -119,19 +115,17 @@ class UserControl{
 
     function retrieveAllUsers(){   //KAREN
         $BD = new DbConnection();
-		$conection = $BD->connectWithConsts();
-		$conection->exec("SELECT * FROM tbl_users");
-    }
-
-    function retrieveUser($id){
-        $dbc = new DbConnection();
-        $conection = $dbc->connectWithConsts();
-		$result = $conection->query("SELECT * FROM tbl_users");
+        $conection = $BD->connectWithConsts();
+        $result = $conection->query("SELECT * FROM tbl_users");
         $rsp = [];
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
             $rsp[] = $this->toUserObject2($row);
         }
         return $rsp;
+    }
+
+    function retrieveUser($id){
+        return $this->retrieveUserById($id);
     }
 
     function retrieveUserById($id){
@@ -144,7 +138,7 @@ class UserControl{
                     return $this->toUserObject2($row);
                 }
             }catch (Exception $e){
-                echo "Erro ao recuperar usuário: $e";
+                echo "Erro ao recuperar usuário: ".$e->getMessage();
                 return null;
             }
         }
