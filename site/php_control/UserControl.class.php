@@ -14,12 +14,12 @@ require_once "DbConnection.class.php";
 
 class UserControl{
     function addUpdateUser(User $usr){
-	   $user = $this -> retrieveUserById($usr -> getId());
+	   $user = $this ->retrieveUserById($usr ->getId());
 	   if ($user == null){
-		   $this -> addUser($usr);
+		   $this ->addUser($usr);
        }
 	   else{
-		   $this -> updateUser($usr);
+		   $this ->updateUser($usr);
 	   }
 	}
 		   
@@ -29,7 +29,7 @@ class UserControl{
         $conn = $dbc->connectWithConsts();
         if($conn != null){
             try{
-                $conn->exec("INSERT INTO tbl_users VALUES( '$usr->getCpf()',' $usr->getCompleteName()',' $usr-> getUserName()',' $usr->getPassword()',' $usr->getEmail()',' $usr->getBirthDate()',' $usr->getTel()',' $usr->getStreet()',' $usr->getNumber()',' $usr->getDistrict()',' $usr->getComplement()',' $usr->getCity()',' $usr->getCep()',' $usr->getCounty()',' $usr->isAdmin()',' $usr->null ')");
+                $conn->exec("INSERT INTO tbl_users VALUES('$usr->getCpf()',' $usr->getCompleteName()',' $usr->getUserName()',' $usr->getPassword()',' $usr->getEmail()',' $usr->getBirthDate()',' $usr->getTel()',' $usr->getStreet()',' $usr->getNumber()',' $usr->getDistrict()',' $usr->getComplement()',' $usr->getCity()',' $usr->getCep()',' $usr->getCounty()','$usr->isAdmin()',' $usr->null ')");
                 
             }catch (Exception $e){
                 echo "Erro ao Adicionar usuário: $e";
@@ -45,7 +45,7 @@ class UserControl{
         $conn = $dbc->connectWithConsts();
         if($conn != null){
             try{
-                $conn->exec("UPDATE  tbl_users SET ( PK_cpf = '$usr->getCpf()', nome_completo = '$usr->getCompleteName()',UN_nome_usuario = '$usr-> getUserName()', senha = '$usr->getPassword()',UN_email = '$usr->getEmail()', data_nasc = '$usr->getBirthDate()',tel =  '$usr->getTel()', rua= '$usr->getStreet()',numero= '$usr->getNumber()',bairro= '$usr->getDistrict()', complemento='$usr->getComplement()', cidade= '$usr->getCity()',cep= '$usr->getCep()',pais= '$usr->getCounty()', is_adm= '$usr->isAdmin()) where PK_cpf = '$usr-> getCpf()')");
+                $conn->exec("UPDATE  tbl_users SET ( PK_cpf = '$usr->getCpf()', nome_completo = '$usr->getCompleteName()',UN_nome_usuario = '$usr->getUserName()', senha = '$usr->getPassword()',UN_email = '$usr->getEmail()', data_nasc = '$usr->getBirthDate()',tel =  '$usr->getTel()', rua= '$usr->getStreet()',numero= '$usr->getNumber()',bairro= '$usr->getDistrict()', complemento='$usr->getComplement()', cidade= '$usr->getCity()',cep= '$usr->getCep()',pais= '$usr->getCounty()', is_adm= '$usr->isAdmin()) where PK_cpf = '$usr->getCpf()')");
                 
             }catch (Exception $e){
                 echo "Erro ao Atualizar usuário: $e";
