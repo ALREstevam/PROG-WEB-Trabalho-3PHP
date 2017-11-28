@@ -39,16 +39,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_edit_info.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user_edit_info.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1445">
-              <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DbSetup.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php_control/DbSetup.class.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -82,25 +72,28 @@
       <file leaf-file-name="UserControl.class.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/php_control/UserControl.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
+            <state relative-caret-position="98">
+              <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
               <folding>
-                <marker date="1511883583914" expanded="true" signature="1921:1955" placeholder="UPDATE tbl_u... " />
-                <marker date="1511883583914" expanded="true" signature="1921:2181" placeholder="UPDATE tbl_u... " />
-                <marker date="1511883583914" expanded="true" signature="1921:2200" placeholder="UPDATE tbl_u... " />
-                <marker date="1511883583914" expanded="true" signature="1921:2201" placeholder="UPDATE tbl_u... " />
-                <marker date="1511883583914" expanded="true" signature="1921:2313" placeholder="UPDATE tbl_u... " />
-                <marker date="1511883583914" expanded="true" signature="1921:2337" placeholder="UPDATE tbl_u... " />
-                <marker date="1511883583914" expanded="true" signature="1921:2402" placeholder="UPDATE tbl_u... " />
-                <marker date="1511883583914" expanded="true" signature="1921:2424" placeholder="UPDATE tbl_u... " />
-                <marker date="1511883583914" expanded="true" signature="1921:2425" placeholder="UPDATE tbl_u... " />
-                <marker date="1511883583914" expanded="true" signature="1921:2454" placeholder="UPDATE tbl_u... " />
-                <marker date="1511883583914" expanded="true" signature="1921:2493" placeholder="UPDATE tbl_u... " />
-                <marker date="1511883583914" expanded="true" signature="2805:2828" placeholder="SELECT * FRO... tbl_users" />
-                <marker date="1511883583914" expanded="true" signature="2985:3008" placeholder="SELECT * FRO... tbl_users" />
-                <marker date="1511883583914" expanded="true" signature="3371:3415" placeholder="SELECT * FRO... tbl_users" />
-                <marker date="1511883583914" expanded="true" signature="4352:4432" placeholder="SELECT * FRO... tbl_users" />
+                <marker date="1511887288956" expanded="true" signature="746:1399" placeholder="INSERT INTO tbl_users... " />
+                <marker date="1511887288956" expanded="true" signature="746:2008" placeholder="INSERT INTO tbl_users... " />
+                <marker date="1511887288956" expanded="true" signature="746:2037" placeholder="INSERT INTO tbl_users... " />
+                <marker date="1511887288956" expanded="true" signature="2565:3418" placeholder="UPDATE tbl_u... " />
+                <marker date="1511887288956" expanded="true" signature="3838:3861" placeholder="SELECT * FRO... tbl_users" />
+                <marker date="1511887288956" expanded="true" signature="4018:4041" placeholder="SELECT * FRO... tbl_users" />
+                <marker date="1511887288956" expanded="true" signature="4404:4448" placeholder="SELECT * FRO... tbl_users" />
+                <marker date="1511887288956" expanded="true" signature="5385:5465" placeholder="SELECT * FRO... tbl_users" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db_pw3.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sql/db_pw3.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="9" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -139,7 +132,7 @@
         <entry file="file://$PROJECT_DIR$/admin_add_user.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="170" column="0" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
+              <caret line="78" column="26" selection-start-line="78" selection-start-column="26" selection-end-line="78" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -191,8 +184,8 @@
         <option value="$PROJECT_DIR$/php_control/DbConnection.class.php" />
         <option value="$PROJECT_DIR$/php_control/DbSetup.class.php" />
         <option value="$PROJECT_DIR$/user_edit_info.php" />
-        <option value="$PROJECT_DIR$/admin_add_user.php" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/admin_add_user.php" />
         <option value="$PROJECT_DIR$/php_control/UserControl.class.php" />
       </list>
     </option>
@@ -207,10 +200,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="-7" />
     <option name="width" value="1378" />
-    <option name="height" value="754" />
+    <option name="height" value="745" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -376,21 +368,21 @@
       <workItem from="1511556617715" duration="10468000" />
       <workItem from="1511631309186" duration="14020000" />
       <workItem from="1511805785760" duration="6854000" />
-      <workItem from="1511882304573" duration="1267000" />
+      <workItem from="1511882304573" duration="3341000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89778000" />
+    <option name="totallyTimeSpent" value="91852000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1378" height="754" extended-state="0" />
-    <editor active="true" />
+    <frame x="-7" y="0" width="1378" height="745" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22306526" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08018155" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16312595" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -461,21 +453,14 @@
         <state relative-caret-position="697">
           <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
           <folding>
-            <marker date="1511883583914" expanded="true" signature="1921:1955" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2181" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2200" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2201" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2313" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2337" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2402" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2424" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2425" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2454" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2493" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="2805:2828" placeholder="SELECT * FRO... tbl_users" />
-            <marker date="1511883583914" expanded="true" signature="2985:3008" placeholder="SELECT * FRO... tbl_users" />
-            <marker date="1511883583914" expanded="true" signature="3371:3415" placeholder="SELECT * FRO... tbl_users" />
-            <marker date="1511883583914" expanded="true" signature="4352:4432" placeholder="SELECT * FRO... tbl_users" />
+            <marker date="1511887288956" expanded="true" signature="746:1399" placeholder="INSERT INTO tbl_users... " />
+            <marker date="1511887288956" expanded="true" signature="746:2008" placeholder="INSERT INTO tbl_users... " />
+            <marker date="1511887288956" expanded="true" signature="746:2037" placeholder="INSERT INTO tbl_users... " />
+            <marker date="1511887288956" expanded="true" signature="2565:3418" placeholder="UPDATE tbl_u... " />
+            <marker date="1511887288956" expanded="true" signature="3838:3861" placeholder="SELECT * FRO... tbl_users" />
+            <marker date="1511887288956" expanded="true" signature="4018:4041" placeholder="SELECT * FRO... tbl_users" />
+            <marker date="1511887288956" expanded="true" signature="4404:4448" placeholder="SELECT * FRO... tbl_users" />
+            <marker date="1511887288956" expanded="true" signature="5385:5465" placeholder="SELECT * FRO... tbl_users" />
           </folding>
         </state>
       </provider>
@@ -539,21 +524,14 @@
         <state relative-caret-position="170">
           <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
           <folding>
-            <marker date="1511883583914" expanded="true" signature="1921:1955" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2181" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2200" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2201" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2313" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2337" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2402" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2424" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2425" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2454" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2493" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="2805:2828" placeholder="SELECT * FRO... tbl_users" />
-            <marker date="1511883583914" expanded="true" signature="2985:3008" placeholder="SELECT * FRO... tbl_users" />
-            <marker date="1511883583914" expanded="true" signature="3371:3415" placeholder="SELECT * FRO... tbl_users" />
-            <marker date="1511883583914" expanded="true" signature="4352:4432" placeholder="SELECT * FRO... tbl_users" />
+            <marker date="1511887288956" expanded="true" signature="746:1399" placeholder="INSERT INTO tbl_users... " />
+            <marker date="1511887288956" expanded="true" signature="746:2008" placeholder="INSERT INTO tbl_users... " />
+            <marker date="1511887288956" expanded="true" signature="746:2037" placeholder="INSERT INTO tbl_users... " />
+            <marker date="1511887288956" expanded="true" signature="2565:3418" placeholder="UPDATE tbl_u... " />
+            <marker date="1511887288956" expanded="true" signature="3838:3861" placeholder="SELECT * FRO... tbl_users" />
+            <marker date="1511887288956" expanded="true" signature="4018:4041" placeholder="SELECT * FRO... tbl_users" />
+            <marker date="1511887288956" expanded="true" signature="4404:4448" placeholder="SELECT * FRO... tbl_users" />
+            <marker date="1511887288956" expanded="true" signature="5385:5465" placeholder="SELECT * FRO... tbl_users" />
           </folding>
         </state>
       </provider>
@@ -658,13 +636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sql/db_pw3.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php_control/__constants.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -724,22 +695,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_list_all_users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin_add_user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="170" column="0" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php_control/DbSetup.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -780,26 +735,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sql/db_pw3.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="9" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_list_all_users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_add_user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="78" column="26" selection-start-line="78" selection-start-column="26" selection-end-line="78" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/php_control/UserControl.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
+        <state relative-caret-position="98">
+          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
           <folding>
-            <marker date="1511883583914" expanded="true" signature="1921:1955" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2181" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2200" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2201" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2313" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2337" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2402" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2424" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2425" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2454" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="1921:2493" placeholder="UPDATE tbl_u... " />
-            <marker date="1511883583914" expanded="true" signature="2805:2828" placeholder="SELECT * FRO... tbl_users" />
-            <marker date="1511883583914" expanded="true" signature="2985:3008" placeholder="SELECT * FRO... tbl_users" />
-            <marker date="1511883583914" expanded="true" signature="3371:3415" placeholder="SELECT * FRO... tbl_users" />
-            <marker date="1511883583914" expanded="true" signature="4352:4432" placeholder="SELECT * FRO... tbl_users" />
+            <marker date="1511887288956" expanded="true" signature="746:1399" placeholder="INSERT INTO tbl_users... " />
+            <marker date="1511887288956" expanded="true" signature="746:2008" placeholder="INSERT INTO tbl_users... " />
+            <marker date="1511887288956" expanded="true" signature="746:2037" placeholder="INSERT INTO tbl_users... " />
+            <marker date="1511887288956" expanded="true" signature="2565:3418" placeholder="UPDATE tbl_u... " />
+            <marker date="1511887288956" expanded="true" signature="3838:3861" placeholder="SELECT * FRO... tbl_users" />
+            <marker date="1511887288956" expanded="true" signature="4018:4041" placeholder="SELECT * FRO... tbl_users" />
+            <marker date="1511887288956" expanded="true" signature="4404:4448" placeholder="SELECT * FRO... tbl_users" />
+            <marker date="1511887288956" expanded="true" signature="5385:5465" placeholder="SELECT * FRO... tbl_users" />
           </folding>
         </state>
       </provider>

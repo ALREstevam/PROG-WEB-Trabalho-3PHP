@@ -184,7 +184,7 @@ require_once "menu.php";
 
         <div>
             <h2>Confirmar ou cancelar operação</h2>
-            <button class="button green sticky" type="submit">Cadastrar</button>
+            <button class="button green sticky" type="submit">Cadastrar / Atualizar </button>
             <button class="button red sticky" type="reset">Limpar</button>
         </div>
 

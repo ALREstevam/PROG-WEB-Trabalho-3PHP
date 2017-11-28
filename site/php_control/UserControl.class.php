@@ -15,18 +15,13 @@ require_once "Util.php";
 
 class UserControl{
 
-    /**
-     * Adicionar um usuário se o CPF não existir, atualizar se já exisitr (testar se é novo ou não e chamar
-     * addUser OU updateUser)
-     * @param User $usr
-     */
     function addUpdateUser(User $usr){
         $user = $this -> retrieveUserById($usr -> getId());
         if ($user == null){
-            $this -> addUser($usr);
+            return $this -> addUser($usr);
         }
         else{
-            $this -> updateUser($usr);
+            return $this -> updateUser($usr);
         }
     }
 
@@ -35,27 +30,48 @@ class UserControl{
         $conn = $dbc->connectWithConsts();
         if($conn != null){
             try{
-                $query = "\"INSERT INTO tbl_users VALUES('\".
-                $usr->getCpf().\"','\"
-                .$usr->getCompleteName().\"','\"
-                .$usr-> getUserName().\"','\"
-                .$usr->getPassword().\"','\"
-                .$usr->getEmail().\"','\"
-                .$usr->getBirthDate(). \"','\"
-                .$usr->getTel(). \"','\"
-                .$usr->getStreet(). \"','\"
-                .$usr->getNumber(). \"','\"
-                .$usr->getDistrict(). \"','\"
-                .$usr->getComplement(). \"','\"
-                .$usr->getCity(). \"','\"
-                .$usr->getCep(). \"','\"
-                .$usr->getCounty().\"',\"
-                .$usr->isAdmin().\")\"";
 
+                $isAdm = $usr->isAdmin() == true ? "true" : "false";
 
-               $conn->exec(
-               );
-
+                $query = "
+                INSERT INTO tbl_users (
+                    PK_cpf,         
+                    nome_completo,  
+                    UN_nome_usuario,
+                    senha,          
+                    UN_email,       
+                    data_nasc,     
+                    tel,            
+                    rua,            
+                    numero,         
+                    bairro,         
+                    complemento,    
+                    cidade,         
+                    cep,            
+                    pais,           
+                    is_adm        
+                )
+                VALUES
+                (
+                 '".$usr->getCpf() ."',
+                 '".$usr->getCompleteName() ."',
+                 '".$usr->getUserName() ."',
+                 '".$usr->getPassword() ."',
+                 '".$usr->getEmail() ."',
+                 '".$usr->getBirthDate() ."',
+                 '".$usr->getTel() ."',
+                 '".$usr->getStreet() ."',
+                 '".$usr->getNumber() ."',
+                 '".$usr->getDistrict() ."',
+                 '".$usr->getComplement() ."',
+                 '".$usr->getCity() ."',
+                 '".$usr->getCep() ."',
+                 '".$usr->getCounty() ."',
+                  ".$isAdm ."
+                )
+                ";
+               $conn->exec($query);
+                return true;
             }catch (Exception $e){
                 echo "Erro ao Adicionar usuário: $e";
                 return null;
@@ -69,7 +85,30 @@ class UserControl{
         $conn = $dbc->connectWithConsts();
         if($conn != null){
             try{
-                $conn->exec("UPDATE  tbl_users SET ( PK_cpf = '".$usr->getCpf()."', nome_completo = '".$usr->getCompleteName()."',UN_nome_usuario = '".$usr-> getUserName()."', senha = '".$usr->getPassword()."',UN_email = '".$usr->getEmail()."', data_nasc = '".$usr->getBirthDate()."',tel = '".$usr->getTel()."', rua= '".$usr->getStreet()."',numero= '".$usr->getNumber()."',bairro= '".$usr->getDistrict()."', complemento='".$usr->getComplement()."', cidade= '".$usr->getCity()."',cep= '".$usr->getCep()."',pais= '".$usr->getCounty()."', is_adm=".$usr->isAdmin().") where PK_cpf = '".$usr-> getCpf()."')");
+                $isAdm = $usr->isAdmin() == true ? "true" : "false";
+                $query =
+                    "UPDATE  tbl_users SET "
+                    ." nome_completo = '".$usr->getCompleteName()
+                    ."',UN_nome_usuario = '".$usr-> getUserName()
+                    ."', senha = '".$usr->getPassword()
+                    ."', UN_email = '".$usr->getEmail()
+                    ."', data_nasc = '".$usr->getBirthDate()
+                    ."', tel = '".$usr->getTel()
+                    ."', rua= '".$usr->getStreet()
+                    ."', numero= '".$usr->getNumber()
+                    ."', bairro= '".$usr->getDistrict()
+                    ."', complemento='".$usr->getComplement()
+                    ."', cidade= '".$usr->getCity()
+                    ."', cep= '".$usr->getCep()
+                    ."', pais= '".$usr->getCounty()
+                    ."', is_adm=".$isAdm
+                    ." WHERE(PK_cpf = '".$usr->getCpf()."')";
+
+                //var_dump_pre($query);
+
+
+                $conn->exec($query);
+                return true;
             }catch (Exception $e){
                 echo "Erro ao Atualizar usuário: $e";
                 return null;
