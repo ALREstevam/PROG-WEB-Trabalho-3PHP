@@ -20,6 +20,7 @@ $usr = $uc->retrieveLoggedUser();
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="icon" href="images/fav.png" sizes="32x32" type="image/png">
     <title>Meus dados</title>
 </head>
 <body>
