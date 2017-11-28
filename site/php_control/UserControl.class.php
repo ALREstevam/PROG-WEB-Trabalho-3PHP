@@ -14,16 +14,49 @@ require_once "DbConnection.class.php";
 
 class UserControl{
     function addUpdateUser(User $usr){
-
-        return true;
-    }
+	   $user = $this -> retrieveUserById($usr -> getId())
+	   if ($user == null){
+		   $this -> addUser($usr);
+       }
+	   else{
+		   $this -> updateUser($usr);
+	   }
+	}
+		   
 
     function addUser(User $usr){
-
+		$dbc = new DbConnection();
+        $conn = $dbc->connectWithConsts();
+        if($conn != null){
+            try{
+                $conn->exec("INSERT INTO tbl_users VALUES( $usr->getCpf(), $usr->getCompleteName(), $usr-> getUserName(), $usr->getPassword(), $usr->getEmail(), $usr->getBirthDate(), $usr->getTel(), $usr->getStreet(), $usr->getNumber(), $usr->getDistrict(), $usr->getComplement(), $usr->getCity(), $usr->getCep(), $usr->getCounty(), $usr->isAdmin(), $usr->null ");
+                
+            }catch (Exception $e){
+                echo "Erro ao recuperar usuário: $e";
+                return null;
+            }
+        }
+        return null;
+    }
         return true;
     }
 
     function updateUser(User $usr){
+		$dbc = new DbConnection();
+        $conn = $dbc->connectWithConsts();
+        if($conn != null){
+            try{
+                $conn->exec("UPDATE  tbl_users SET ( $usr->getCpf(), $usr->getCompleteName(), $usr-> getUserName(), $usr->getPassword(), $usr->getEmail(), $usr->getBirthDate(), $usr->getTel(), $usr->getStreet(), $usr->getNumber(), $usr->getDistrict(), $usr->getComplement(), $usr->getCity(), $usr->getCep(), $usr->getCounty(), $usr->isAdmin(), $usr->null ");
+                
+            }catch (Exception $e){
+                echo "Erro ao recuperar usuário: $e";
+                return null;
+            }
+        }
+        return null;
+    }
+        return true;
+    }
 
     }
 
