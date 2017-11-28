@@ -20,7 +20,10 @@ class UserControl{
      * @param User $usr
      */
     function addUpdateUser(User $usr){
-		
+	   $BD = new DbConnection();
+	   $conn = $BD -> connectWithConsts();
+	   $CPF 
+
 		
 		
         
