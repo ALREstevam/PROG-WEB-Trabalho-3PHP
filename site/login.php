@@ -4,7 +4,9 @@
  * User: andre
  */
 require_once "php_control/FormHandler.class.php";
-require_once "util/Util.php";
+require_once "php_control/Util.php";
+
+
 $formHandler = new FormHandler();
 $formHandler->handle();
 
@@ -16,6 +18,7 @@ $formHandler->handle();
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="icon" href="images/fav.png" sizes="32x32" type="image/png">
     <title>Login</title>
 </head>
 <body class="login">
@@ -35,7 +38,7 @@ $formHandler->handle();
     </form>
     <br>
     <br>
-    <?php  echo getAlertBox("Status", $formHandler->getStatus()[1], $formHandler->getStatus()[0], $formHandler->getStatus()[1] == "" ? false : true) ?>
+    <?php  echo Util::getAlertBox("Status", $formHandler->getStatus()[1], $formHandler->getStatus()[0], $formHandler->getStatus()[1] == "" ? false : true) ?>
 </div>
 
 

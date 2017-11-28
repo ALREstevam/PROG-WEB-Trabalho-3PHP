@@ -3,20 +3,7 @@
  * Created by PhpStorm.
  * User: andre
  */
-
-//DATABASE
-define("DB_NAME","db_pw3");
-define("DB_HOST", "localhost");
-define("DB_PASSWORD","");
-define("DB_USERNAME","root");
-
-define("DB_TABLE_USER", 'tbl_users');
-
-define("PATH_SSI_MENU",__DIR__.'/ssi/menu.php');
-define("PATH_USER_CONTROL",__DIR__.'/UserControl.class.php');
-define("PATH_DB_CONNECTION",__DIR__.'/DbConnection.class.php');
-define("PATH_USER_AUTH",__DIR__.'/UserAuth.class.php');
-define("PATH_LOGIN",__DIR__.'/login.php');
+include "__config.php";
 
 define("NULL",null);
 define("TRUE", true);

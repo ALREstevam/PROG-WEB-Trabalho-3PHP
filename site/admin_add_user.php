@@ -6,7 +6,9 @@
 
 
 require_once "php_control/UserControl.class.php";
-require_once "util/Util.php";
+require_once "php_control/Util.php";
+require_once "php_control/UserAuth.class.php";
+$ua = new UserAuth(AccessType::ADMIN);
 
 $statusMsg = "nenhum formulário submetido";
 $statusType = "info";
@@ -95,7 +97,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Administrador - Novo Usuário</title>
+    <link rel="icon" href="images/fav.png" sizes="32x32" type="image/png">
+    <title>Novo Usuário</title>
 </head>
 <body>
 <?php
@@ -113,9 +116,6 @@ require_once "menu.php";
             <label for="userName">Nome de usuário</label>
             <input type="text" name="userName" id="userName" placeholder="anton" required class="sticky" value="<?php echo getIfSubmitedToHtml('userName') ?>">
 
-            <label for="userEmail">E-mail</label>
-            <input type="email" name="userEmail" id="userEmail" placeholder="antonio@example.com" required class="sticky" value="<?php echo getIfSubmitedToHtml('userEmail') ?>">
-
             <label for="password">Senha</label>
             <input type="password" name="password" id="password" placeholder="******" required class="sticky" value="<?php echo getIfSubmitedToHtml('password') ?>">
 
@@ -124,13 +124,6 @@ require_once "menu.php";
 
             <label for="cpf">CPF</label>
             <input type="text" name="cpf" id="cpf" placeholder="687.542.675-79" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" class="sticky" value="<?php echo getIfSubmitedToHtml('cpf') ?>">
-        </div>
-
-        
-        <div>
-            <h2>Dados de contato</h2>
-            <label for="tel">Número de Telefone</label>
-            <input type="tel" name="tel" id="tel" placeholder="" required class="sticky" value="<?php echo getIfSubmitedToHtml('tel') ?>">
         </div>
 
         <div>
@@ -170,6 +163,14 @@ require_once "menu.php";
         </div>
 
         <div>
+            <h2>Dados de contato</h2>
+            <label for="tel">Número de Telefone</label>
+            <input type="tel" name="tel" id="tel" placeholder="" required class="sticky" value="<?php echo getIfSubmitedToHtml('tel') ?>">
+
+            <label for="userEmail">E-mail</label>
+            <input type="email" name="userEmail" id="userEmail" placeholder="antonio@example.com" required class="sticky" value="<?php echo getIfSubmitedToHtml('userEmail') ?>">
+
+
             <h2>Dados adicionais</h2>
             <label>É um administrador</label>
             <br>
@@ -180,17 +181,11 @@ require_once "menu.php";
             <label for="isadmNo">Não</label>
             <input type="radio" name="isadm" id="isadmNo" class="" value="no" <?php  echo getIfSubmitedToHtml('isadm') == 'no' ? 'checked' : ''  ?>>
 
-            <br><br>
+        </div>
 
-
-
-<<<<<<< HEAD
-            <button class="button green sticky" type="submit">Cadastrar</button>
-=======
         <div>
             <h2>Confirmar ou cancelar operação</h2>
             <button class="button green sticky" type="submit">Cadastrar / Atualizar </button>
->>>>>>> Tbranch
             <button class="button red sticky" type="reset">Limpar</button>
         </div>
 
@@ -198,7 +193,7 @@ require_once "menu.php";
     </form>
     <?php
 
-        echo getAlertBox("Status", $statusMsg, $statusType, true);
+        echo Util::getAlertBox("Status", $statusMsg, $statusType, true);
     ?>
 </div>
 
