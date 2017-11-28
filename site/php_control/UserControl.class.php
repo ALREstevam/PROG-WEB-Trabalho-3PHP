@@ -1,6 +1,7 @@
 <?php
 include_once "User.class.php";
 require_once "DbConnection.class.php";
+require_once "Util.php";
 /**
  * Created by PhpStorm.
  * User: andre
@@ -20,31 +21,72 @@ class UserControl{
      * @param User $usr
      */
     function addUpdateUser(User $usr){
-		
-		
-		
-        
+        $user = $this -> retrieveUserById($usr -> getId());
+        if ($user == null){
+            $this -> addUser($usr);
+        }
+        else{
+            $this -> updateUser($usr);
+        }
     }
 
     function addUser(User $usr){
+        $dbc = new DbConnection();
+        $conn = $dbc->connectWithConsts();
+        if($conn != null){
+            try{
+                $query = "\"INSERT INTO tbl_users VALUES('\".
+                $usr->getCpf().\"','\"
+                .$usr->getCompleteName().\"','\"
+                .$usr-> getUserName().\"','\"
+                .$usr->getPassword().\"','\"
+                .$usr->getEmail().\"','\"
+                .$usr->getBirthDate(). \"','\"
+                .$usr->getTel(). \"','\"
+                .$usr->getStreet(). \"','\"
+                .$usr->getNumber(). \"','\"
+                .$usr->getDistrict(). \"','\"
+                .$usr->getComplement(). \"','\"
+                .$usr->getCity(). \"','\"
+                .$usr->getCep(). \"','\"
+                .$usr->getCounty().\"',\"
+                .$usr->isAdmin().\")\"";
 
 
+               $conn->exec(
+               );
+
+            }catch (Exception $e){
+                echo "Erro ao Adicionar usuário: $e";
+                return null;
+            }
+        }
+        return null;
     }
 
     function updateUser(User $usr){
-
+        $dbc = new DbConnection();
+        $conn = $dbc->connectWithConsts();
+        if($conn != null){
+            try{
+                $conn->exec("UPDATE  tbl_users SET ( PK_cpf = '".$usr->getCpf()."', nome_completo = '".$usr->getCompleteName()."',UN_nome_usuario = '".$usr-> getUserName()."', senha = '".$usr->getPassword()."',UN_email = '".$usr->getEmail()."', data_nasc = '".$usr->getBirthDate()."',tel = '".$usr->getTel()."', rua= '".$usr->getStreet()."',numero= '".$usr->getNumber()."',bairro= '".$usr->getDistrict()."', complemento='".$usr->getComplement()."', cidade= '".$usr->getCity()."',cep= '".$usr->getCep()."',pais= '".$usr->getCounty()."', is_adm=".$usr->isAdmin().") where PK_cpf = '".$usr-> getCpf()."')");
+            }catch (Exception $e){
+                echo "Erro ao Atualizar usuário: $e";
+                return null;
+            }
+        }
+        return null;
     }
 
     function retrieveAllUsers(){   //KAREN
         $BD = new DbConnection();
 		$conection = $BD->connectWithConsts();
-<<<<<<< HEAD
-		$conection->exec( SELECT * FROM tbl_users );
+		$conection->exec("SELECT * FROM tbl_users");
     }
 
     function retrieveUser($id){
-        return new User();
-=======
+        $dbc = new DbConnection();
+        $conection = $dbc->connectWithConsts();
 		$result = $conection->query("SELECT * FROM tbl_users");
         $rsp = [];
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
@@ -75,7 +117,6 @@ class UserControl{
            return $this->retrieveUserById($id);
        }
         return null;
->>>>>>> 56bbfc98a484a4dc6b7da42073dcc4fde0f3d6ae
     }
 
     function toUserObject($OriginalData){    //KAREN
@@ -91,9 +132,6 @@ class UserControl{
     }
 
     function authUser($login, $password){
-<<<<<<< HEAD
-        return -1;
-=======
         $dbc = new DbConnection();
         $conn = $dbc->connectWithConsts();
         if($conn != null){
@@ -109,7 +147,6 @@ class UserControl{
             }
         }
         return false;
->>>>>>> 56bbfc98a484a4dc6b7da42073dcc4fde0f3d6ae
     }
 
 
@@ -118,7 +155,6 @@ class UserControl{
             session_start();
         }
 		$_SESSION ['user'] = $uid;
-
     }
 
     function logoutUser(){
@@ -130,20 +166,14 @@ class UserControl{
     }
 
     function isUserLogged(){
-<<<<<<< HEAD
-
-    }
-=======
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
-
         if(isset($_SESSION['user'])){
             return $_SESSION['user'];
         }
         else
             return false; // Não logado
         }
-
->>>>>>> 56bbfc98a484a4dc6b7da42073dcc4fde0f3d6ae
 }
+
