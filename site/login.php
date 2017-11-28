@@ -4,9 +4,7 @@
  * User: andre
  */
 require_once "php_control/FormHandler.class.php";
-require_once "php_control/Util.php";
-
-
+require_once "util/Util.php";
 $formHandler = new FormHandler();
 $formHandler->handle();
 
@@ -37,7 +35,7 @@ $formHandler->handle();
     </form>
     <br>
     <br>
-    <?php  echo Util::getAlertBox("Status", $formHandler->getStatus()[1], $formHandler->getStatus()[0], $formHandler->getStatus()[1] == "" ? false : true) ?>
+    <?php  echo getAlertBox("Status", $formHandler->getStatus()[1], $formHandler->getStatus()[0], $formHandler->getStatus()[1] == "" ? false : true) ?>
 </div>
 
 

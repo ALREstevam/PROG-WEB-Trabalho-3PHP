@@ -7,69 +7,58 @@ function getCountryNamesArray(){
 }
 
 
-class UserGeneratorUtil{
-    static function getUserListExample($amount){
-        $rsp = [];
+function getUserListExample($amount){
+    $rsp = [];
 
-        for($i = 0; $i < $amount; $i++){
-            $rsp[] = UserGeneratorUtil::getUserExample();
-        }
-        return $rsp;
+    for($i = 0; $i < $amount; $i++){
+        $rsp[] = getUserExample();
     }
+    return $rsp;
+}
 
-    static function getUserExample(){
-        $usrLst[0] = new User("Aluhua eloa", 'aaaloa', 'ma@il', '123', '2013-01-08', '123', '3568-989', 'Rua das Paineirais', '566', 'Nova Europa', 'BLOCO X', '1256-000', 'Nova Rússiia', 'Antártica', true);
-        $usrLst[1] = new User("Aleiolococa Aleisato eloa", 'aaaloa', 'maisid@il', '123', '2013-01-08', '123', '3568-989', 'Rua das Paineirais Paneirosas Paneirantes', '566', 'Nova Europa Japonesa', 'Bloco 9 apto 999', '1256-000', 'Nova Rússia Americana', 'Antártica Equatorial', true);
-        $usrLst[2] = new User("Ana", 'abc', 'maisid@il66', '1', '2013-01-08', '123', '3568-989', 'Rua 2', '566', 'Europa', '', '1256-000', 'Bairro a', 'Portugal', true);
+function getUserExample(){
+    $usrLst[0] = new User("Aluhua eloa", 'aaaloa', 'ma@il', '123', '2013-01-08', '123', '3568-989', 'Rua das Paineirais', '566', 'Nova Europa', 'BLOCO X', '1256-000', 'Nova Rússiia', 'Antártica', true);
+    $usrLst[1] = new User("Aleiolococa Aleisato eloa", 'aaaloa', 'maisid@il', '123', '2013-01-08', '123', '3568-989', 'Rua das Paineirais Paneirosas Paneirantes', '566', 'Nova Europa Japonesa', 'Bloco 9 apto 999', '1256-000', 'Nova Rússia Americana', 'Antártica Equatorial', true);
+    $usrLst[2] = new User("Ana", 'abc', 'maisid@il66', '1', '2013-01-08', '123', '3568-989', 'Rua 2', '566', 'Europa', '', '1256-000', 'Bairro a', 'Portugal', true);
 
-        $rand_key = array_rand($usrLst, 1);
-        return $usrLst[$rand_key];
-    }
+    $rand_key = array_rand($usrLst, 1);
+    return $usrLst[$rand_key];
 }
 
 
+function getAlertBox($name, $message, $type = "blue",$valid = true){
+    if($valid){
 
+        switch ($type){
+            case "blue":
+                break;
+            case "red":
+                break;
+            case "green":
+                break;
+            case "alert":
+                $type = "yellow";
+                break;
+            case "info":
+                $type = "blue";
+                break;
+            case "error":
+                $type = "red";
+                break;
+            case "success":
+                $type = "green";
+                break;
+            default:
+                $type = "blue";
+                break;
+    }
 
-class Util{
-    static function getAlertBox($name, $message, $type = "blue",$valid = true){
-        if($valid){
-
-            switch ($type){
-                case "blue":
-                    break;
-                case "red":
-                    break;
-                case "green":
-                    break;
-                case "alert":
-                    $type = "yellow";
-                    break;
-                case "info":
-                    $type = "blue";
-                    break;
-                case "error":
-                    $type = "red";
-                    break;
-                case "success":
-                    $type = "green";
-                    break;
-                default:
-                    $type = "blue";
-                    break;
-            }
-
-            return "
+        return "
             <div class='alert $type'>
                 <span class='closebtn' onclick='this.parentElement.style.display=\"none\";'>&times;</span> 
                 <span><strong>$name:</strong> $message</span>
             </div>
         ";
-        }
-        return "";
     }
-
-    static function redirectTo($link){
-        header('Location: '.$link);
-    }
+    return "";
 }
-

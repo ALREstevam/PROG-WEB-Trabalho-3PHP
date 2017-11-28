@@ -5,13 +5,11 @@
  */
 require_once "php_control/UserControl.class.php";
 require_once "php_control/User.class.php";
-require_once "php_control/Util.php";
-require_once "php_control/UserAuth.class.php";
-$ua = new UserAuth(AccessType::ADMIN);
+require_once "util/Util.php";
 
 
-$uc = new UserControl();
-$usrLst = $uc->retrieveAllUsers();
+/*APENAS PARA TESTAR!*/
+$usrLst = getUserListExample(20);
 
 ?>
 

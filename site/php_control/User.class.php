@@ -265,17 +265,9 @@ class User{
     }
 
     /**
- * @return mixed
- */
-    public function getCpf()
-    {
-        return $this->cpf;
-    }
-
-    /**
      * @return mixed
      */
-    public function getId()
+    public function getCpf()
     {
         return $this->cpf;
     }
@@ -302,22 +294,6 @@ class User{
     public function setTel($tel)
     {
         $this->tel = $tel;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
-
-    /**
-     * @param mixed $address
-     */
-    public function setAddress($address)
-    {
-        $this->address = $address;
     }
 
     /**

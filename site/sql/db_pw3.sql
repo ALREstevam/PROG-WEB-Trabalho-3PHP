@@ -1,4 +1,3 @@
-
 /*
 Language: MySql
 [ LAST UPDATE: 24/11/2017 14:05 ]
@@ -40,3 +39,4 @@ CREATE TABLE IF NOT EXISTS `tbl_users` (
 
 INSERT INTO `tbl_users` (`PK_cpf`, `nome_completo`, `UN_nome_usuario`, `senha`, `UN_email`, `data_nasc`, `tel`, `rua`, `numero`, `bairro`, `complemento`, `cidade`, `cep`, `is_adm`) VALUES
   ('000.000.000-00', 'admin', 'admin', 'admin', 'ad@min.min', '1970-01-01', NULL, NULL, NULL, NULL, NULL, NULL, NULL, TRUE);
+
