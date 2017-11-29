@@ -2,17 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: andre
-*/
+ */
 
-require_once "php_control/UserControl.class.php";
-require_once "php_control/User.class.php";
-require_once "php_control/Util.php";
-require_once "php_control/UserAuth.class.php";
-$ua = new UserAuth(AccessType::COMMON);
-
-
-$uc = new UserControl();
-$usr = $uc->retrieveLoggedUser();
 
 ?>
 
@@ -26,6 +17,16 @@ $usr = $uc->retrieveLoggedUser();
 </head>
 <body>
 <?php
+
+require_once "php_control/UserControl.class.php";
+require_once "php_control/User.class.php";
+require_once "php_control/Util.php";
+require_once "php_control/UserAuth.class.php";
+$ua = new UserAuth(AccessType::COMMON);
+
+$uc = new UserControl();
+$usr = $uc->retrieveLoggedUser();
+
 require_once "menu.php";
 ?>
 <div>
@@ -39,3 +40,4 @@ require_once "menu.php";
 </div>
 </body>
 </html>
+

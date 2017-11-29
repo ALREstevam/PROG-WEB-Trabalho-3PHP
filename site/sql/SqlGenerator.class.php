@@ -1,4 +1,15 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: andre
+ * Date: 27/11/2017
+ * Time: 16:38
+ */
 
+class SqlGenerator{
+    static function generateDbFile($dbName){
+
+        $data = "
 /*
 Language: MySql
 [ LAST UPDATE: 24/11/2017 14:05 ]
@@ -11,8 +22,8 @@ Language: MySql
 
 -- Copiando estrutura do banco de dados para db_pw3
 DROP DATABASE IF EXISTS `db_pw3`;
-CREATE DATABASE IF NOT EXISTS `db_pw3` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `db_pw3`;
+CREATE DATABASE IF NOT EXISTS `$dbName` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `$dbName`;
 
 
 -- Copiando estrutura para tabela db_pw3.tbl_users
@@ -71,3 +82,16 @@ VALUES
   '-',
   '-',
   TRUE);
+";
+        echo "<p>Abring arquivo 'db_pw3.sql'</p>";
+        $sqlFile = fopen("db_pw3_generated.sql", "w") or die("Unable to open file!");
+        echo "<p>Escrevendo...</p>";
+        fwrite($sqlFile, $data);
+        echo "<p>Fechando</p>";
+        fclose($sqlFile);
+        echo "<p>Arquivo 'db_pw3.sql' foi gerado.</p>";
+    }
+}
+
+?>
+

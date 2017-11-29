@@ -5,12 +5,26 @@
  */
 
 
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="icon" href="images/fav.png" sizes="32x32" type="image/png">
+    <title>Novo Usuário</title>
+</head>
+<body>
+<?php
+
 require_once "php_control/UserControl.class.php";
-require_once "util/Util.php";
+require_once "php_control/Util.php";
+require_once "php_control/UserAuth.class.php";
+$ua = new UserAuth(AccessType::ADMIN);
 
 $statusMsg = "nenhum formulário submetido";
 $statusType = "info";
-
 
 
 
@@ -38,73 +52,97 @@ function valueToVar($stack, $field){
     return $stack[$field];
 }
 
-if($_SERVER['REQUEST_METHOD'] == "POST"){
+function readInput(){
+    global $statusMsg;
+    global $statusType;
 
-    $formInputName =
-        [
-            "completeName","userName","userEmail","password","birthDate","cpf","tel","strt","num","distr","compl","cep","city","count","isadm"
-        ];
+    if($_SERVER['REQUEST_METHOD'] == "POST"){
 
-    $frmv = [];
-    
-    foreach ($formInputName as $field){
-        if(isset($_POST[$field])){
-            $frmv[$field] = $_POST[$field];
+        $formInputName =
+            [
+                "completeName","userName","userEmail","password","birthDate","cpf","tel","strt","num","distr","compl","cep","city","count","isadm"
+            ];
+
+        $frmv = [];
+
+        foreach ($formInputName as $field){
+            if(isset($_POST[$field])){
+                if($_POST[$field] == "" or $_POST[$field] == null){
+                    $statusType = "alert";
+                    $statusMsg = "campo $field está incorreto, impossível cadastrar o usuário.";
+                    return;
+                }
+                if($field == "cpf"){
+                    if(!FieldValidation::validateCpf($_POST[$field])){
+                        $statusType = "alert";
+                        $statusMsg = "o CPF digitado é inválido.";
+                        return;
+                    }
+                }
+
+                if($field == "password"){
+                    if(!FieldValidation::validatePassword($_POST[$field], 7)){
+                        $statusType = "alert";
+                        $statusMsg = "a senha digitada não foi validada, use ao menos 8 caracteres.";
+                        return;
+                    }
+                }
+                if($field == "birthDate"){
+                    if(!FieldValidation::validateDate($_POST[$field])){
+                        $statusType = "alert";
+                        $statusMsg = "a dada de nascimento digitada está incorreta.";
+                        return;
+                    }
+                }
+
+                $frmv[$field] = $_POST[$field];
+            }else{
+                $statusMsg = "campo $field não foi encontrado, impossível cadastrar o usuário.";
+                $statusType = "error";
+                return;
+            }
+        }
+        $usr = new User(
+            valueToVar($frmv, "completeName"),
+            valueToVar($frmv, "userName"),
+            valueToVar($frmv, "userEmail"),
+            valueToVar($frmv, "password"),
+            valueToVar($frmv, "birthDate"),
+            valueToVar($frmv, "cpf"),
+            valueToVar($frmv, "tel"),
+            valueToVar($frmv, "strt"),
+            valueToVar($frmv, "num"),
+            valueToVar($frmv, "distr"),
+            valueToVar($frmv, "compl"),
+            valueToVar($frmv, "cep"),
+            valueToVar($frmv, "city"),
+            valueToVar($frmv, "count"),
+            valueToVar($frmv, "isadm")
+        );
+        $uc = new UserControl();
+        $res = $uc->addUpdateUser($usr);
+
+        if($res){
+            $statusMsg = "Operação realizada com sucesso.";
+            $statusType = "success";
+            $_POST = null;
+            $frmv = null;
+
         }else{
-            $statusMsg = "campo $field não foi encontrado, impossível cadastrar o usuário.";
-            $statusType = "alert";
-            return;
+            $statusMsg = "Erro ao realizar a operação.";
+            $statusType = "error";
         }
     }
-    $usr = new User(
-        valueToVar($frmv, "completeName"),
-        valueToVar($frmv, "userName"),
-        valueToVar($frmv, "userEmail"),
-        valueToVar($frmv, "password"),
-        valueToVar($frmv, "birthDate"),
-        valueToVar($frmv, "cpf"),
-        valueToVar($frmv, "tel"),
-        valueToVar($frmv, "strt"),
-        valueToVar($frmv, "num"),
-        valueToVar($frmv, "distr"),
-        valueToVar($frmv, "compl"),
-        valueToVar($frmv, "cep"),
-        valueToVar($frmv, "city"),
-        valueToVar($frmv, "count"),
-        valueToVar($frmv, "isadm")
-    );
-    $uc = new UserControl();
-    $res = $uc->addUpdateUser($usr);
-
-    if($res){
-        $statusMsg = "Operação realizada com sucesso.";
-        $statusType = "success";
-        $_POST = null;
-        $frmv = null;
-
-    }else{
-        $statusMsg = "Erro ao realizar a operação.";
-        $statusType = "error";
-    }
 }
+readInput();
 
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <link rel="icon" href="images/fav.png" sizes="32x32" type="image/png">
-    <title>Novo Usuário</title>
-</head>
-<body>
-<?php
+
 require_once "menu.php";
 ?>
 <h1>Adicionar ou atualizar um usuário</h1>
 <div id="newUserDiv" class="hCentered shadowed">
-    <form action="" method="post" name="form_add_user" class="flexrow">
+    <form method="post" name="form_add_user" class="flexrow">
         <div>
             <h2>Dados de identificação</h2>
 
@@ -114,24 +152,14 @@ require_once "menu.php";
             <label for="userName">Nome de usuário</label>
             <input type="text" name="userName" id="userName" placeholder="anton" required class="sticky" value="<?php echo getIfSubmitedToHtml('userName') ?>">
 
-            <label for="userEmail">E-mail</label>
-            <input type="email" name="userEmail" id="userEmail" placeholder="antonio@example.com" required class="sticky" value="<?php echo getIfSubmitedToHtml('userEmail') ?>">
-
             <label for="password">Senha</label>
             <input type="password" name="password" id="password" placeholder="******" required class="sticky" value="<?php echo getIfSubmitedToHtml('password') ?>">
 
             <label for="birthDate">Data de nascimento</label>
-            <input type="date" name="birthDate" id="" placeholder="05/09/1990" required class="sticky" value="<?php echo getIfSubmitedToHtml('birthDate') ?>">
+            <input type="date" name="birthDate" id="birthDate" required class="sticky" value="<?php echo getIfSubmitedToHtml('birthDate') ?>">
 
             <label for="cpf">CPF</label>
             <input type="text" name="cpf" id="cpf" placeholder="687.542.675-79" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" class="sticky" value="<?php echo getIfSubmitedToHtml('cpf') ?>">
-        </div>
-
-        
-        <div>
-            <h2>Dados de contato</h2>
-            <label for="tel">Número de Telefone</label>
-            <input type="tel" name="tel" id="tel" placeholder="" required class="sticky" value="<?php echo getIfSubmitedToHtml('tel') ?>">
         </div>
 
         <div>
@@ -146,7 +174,7 @@ require_once "menu.php";
             <label for="distr">Bairo</label>
             <input type="text" name="distr" id="distr" placeholder="Nova Europa" required class="sticky" value="<?php echo getIfSubmitedToHtml('distr') ?>">
 
-            <label for="">Complemento</label>
+            <label for="compl">Complemento</label>
             <input type="text" name="compl" id="compl" placeholder="BLOCO X - Apto. 20" required class="sticky" value="<?php echo getIfSubmitedToHtml('compl') ?>">
 
 
@@ -159,7 +187,8 @@ require_once "menu.php";
             <?php  echo getIfSubmitedToHtml('count') == '' ? 'selected' : ''?>
 
             <label for="count">País</label>
-            <select name="count" id="count" class="sticky" required>
+            <select name="count" id="count" class="sticky" required size="1">
+                <option value="">Escolha</option>
                 <?php 
                 $countries = getCountryNamesArray();
                 foreach ($countries as $country) {
@@ -171,6 +200,14 @@ require_once "menu.php";
         </div>
 
         <div>
+            <h2>Dados de contato</h2>
+            <label for="tel">Número de Telefone</label>
+            <input type="tel" name="tel" id="tel" placeholder="" required class="sticky" value="<?php echo getIfSubmitedToHtml('tel') ?>">
+
+            <label for="userEmail">E-mail</label>
+            <input type="email" name="userEmail" id="userEmail" placeholder="antonio@example.com" required class="sticky" value="<?php echo getIfSubmitedToHtml('userEmail') ?>">
+
+
             <h2>Dados adicionais</h2>
             <label>É um administrador</label>
             <br>
@@ -181,8 +218,8 @@ require_once "menu.php";
             <label for="isadmNo">Não</label>
             <input type="radio" name="isadm" id="isadmNo" class="" value="no" <?php  echo getIfSubmitedToHtml('isadm') == 'no' ? 'checked' : ''  ?>>
 
-            <br><br>
-            
+        </div>
+
         <div>
             <h2>Confirmar ou cancelar operação</h2>
             <button class="button green sticky" type="submit">Cadastrar / Atualizar </button>
@@ -192,8 +229,7 @@ require_once "menu.php";
 
     </form>
     <?php
-
-        echo getAlertBox("Status", $statusMsg, $statusType, true);
+        echo Util::getAlertBox("Status", $statusMsg, $statusType, true);
     ?>
 </div>
 

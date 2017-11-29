@@ -5,6 +5,7 @@
  */
 
 require_once '__constants.php';
+require_once 'Util.php';
 
 class DbConnection{
     function connectWithConsts()
@@ -21,7 +22,7 @@ class DbConnection{
         }
         catch(PDOException $e)
         {
-            echo "<h1>Não foi possível conectar ao banco:</h1>" . $e->getMessage();
+            echo Util::getFloatingAlertBox("Erro ao conectar no banco","Não foi possível conectar ao banco:" . $e->getMessage(), "error");
             return null;
         }
     }

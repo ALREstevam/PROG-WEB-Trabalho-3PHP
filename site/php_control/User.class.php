@@ -61,7 +61,7 @@ class User{
         $this->completeName = $completeName;
         $this->userName = $userName;
         $this->email = $email;
-        $this->password = $password;
+        $this->password = Password::preparePassword($password);
         $this->birthDate = $birthDate;
         $this->cpf = $cpf;
         $this->tel = $tel;
@@ -75,22 +75,24 @@ class User{
         $this->isAdmin = $isAdmin;
     }
 
+    
+    
     private $varList = [
-        "completeName" =>  ["completeName"      ,         "nome_completo"       ],
-        "userName"     =>  ["userName"          ,         "UN_nome_usuario"     ],
-        "email"        =>  ["email"             ,         "UN_email"            ],
-        "password"     =>  ["password"          ,         "senha"               ],
-        "birthDate"    =>  ["birthDate"         ,         "data_nasc"           ],
-        "cpf"          =>  ["cpf"               ,         "PK_cpf"              ],
-        "tel"          =>  ["tel"               ,         "tel"                 ],
-        "street"       =>  ["street"            ,         "rua"                 ],
-        "number"       =>  ["number"            ,         "numero"              ],
-        "district"     =>  ["district"          ,         "bairro"              ],
-        "complement"   =>  ["complement"        ,         "complemento"         ],
-        "cep"          =>  ["cep"               ,         "cep"                 ],
-        "city"         =>  ["city"              ,         "cidade"              ],
-        "county"       =>  ["county"            ,         "pais"                ],
-        "isAdmin"      =>  ["isAdmin"           ,         "is_adm"              ],
+        "completeName" =>  ["completeName"      ,         "nome_completo"       , "completeName"],
+        "userName"     =>  ["userName"          ,         "UN_nome_usuario"     , "userName"],
+        "email"        =>  ["email"             ,         "email"               , "userEmail"],
+        "password"     =>  ["password"          ,         "senha"               , "password"],
+        "birthDate"    =>  ["birthDate"         ,         "data_nasc"           , "birthDate"],
+        "cpf"          =>  ["cpf"               ,         "PK_cpf"              , "cpf"],
+        "tel"          =>  ["tel"               ,         "tel"                 , "tel"],
+        "street"       =>  ["street"            ,         "rua"                 , "strt"],
+        "number"       =>  ["number"            ,         "numero"              , "num"],
+        "district"     =>  ["district"          ,         "bairro"              , "distr"],
+        "complement"   =>  ["complement"        ,         "complemento"         , "compl"],
+        "cep"          =>  ["cep"               ,         "cep"                 , "cep"],
+        "city"         =>  ["city"              ,         "cidade"              , "city"],
+        "county"       =>  ["county"            ,         "pais"                , "count"],
+        "isAdmin"      =>  ["isAdmin"           ,         "is_adm"              , "isadm"],
         "dataCadastro" =>  ["dataCadastro"      ,         "data_cadastro"       ],
     ];
 
@@ -152,6 +154,66 @@ class User{
             }
         }
     }
+
+    function __get($name)
+    {
+         foreach ($this->varList as $key => $possibleVarName){
+             if(in_array($name, $possibleVarName)){
+
+                 switch ($key){
+                     case "completeName":
+                         return $this->completeName;
+                               
+                     case "userName":
+                         return $this->userName;
+                               
+                     case "email":
+                         return $this->email;
+                               
+                     case "password":
+                         return $this->password;
+                               
+                     case "birthDate":
+                         return $this->birthDate;
+                               
+                     case "cpf":
+                         return $this->cpf;
+                               
+                     case "tel":
+                         return $this->tel;
+                               
+                     case "street":
+                         return $this->street;
+                               
+                     case "number":
+                         return $this->number;
+                               
+                     case "district":
+                         return $this->district;
+                               
+                     case "complement":
+                         return $this->complement;
+                               
+                     case "cep":
+                         return $this->cep;
+                               
+                     case "city":
+                         return $this->city;
+                               
+                     case "county":
+                         return $this->county;
+                               
+                     case "isAdmin":
+                         return $this->isAdmin;
+                               
+                     case "dataCadastro":
+                         return $this->dataCadastro;
+                               
+                 }
+             }
+         }
+        return null;
+     }
 
 
     function __toString()
@@ -265,9 +327,17 @@ class User{
     }
 
     /**
+ * @return mixed
+ */
+    public function getCpf()
+    {
+        return $this->cpf;
+    }
+
+    /**
      * @return mixed
      */
-    public function getCpf()
+    public function getId()
     {
         return $this->cpf;
     }

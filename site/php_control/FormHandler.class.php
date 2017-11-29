@@ -3,6 +3,8 @@
 require_once "UserControl.class.php";
 require_once "User.class.php";
 require_once "__constants.php";
+require_once "Util.php";
+require_once "UserAuth.class.php";
 
 if($_SERVER['REQUEST_METHOD'] == "POST" OR $_SERVER['REQUEST_METHOD'] == "GET"){
     $formHandler = new FormHandler();
@@ -23,20 +25,20 @@ class FormHandler{
              */
             if(isset($_POST['login']) && isset($_POST['pswd'])){
                 $uc = new UserControl();
-                $id = $uc->authUser($_POST['login'], $_POST['pswd']);
-                if($id){
-                    $usr = $uc->retrieveUserById($id);
+                $usr = $uc->authUser($_POST['login'], Password::preparePassword($_POST['pswd']));
+                if($usr){
+                    $uc->loginUser($usr->getId());
                     if($usr -> isAdmin()){
                         $this->status = ["success", "redirecionando."];
-                        header('Location: '.'admin_add_user.php');
+                        Util::redirectTo('admin_add_user.php');
                         return;
                     }else{
                         $this->status = ["success", "redirecionando."];
-                        header('Location: '.'user_edit_info.php');
+                        Util::redirectTo('user_edit_info.php');
                         return;
                     }
                 }
-                $this->status = ["error", "Login e/ou senha incorretos."];
+                $this->status = ["alert", "Login e/ou senha incorretos."];
                 return;
             }
             $this->status = ["alert", "Campos incompletos."];

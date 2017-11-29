@@ -2,6 +2,7 @@
 include_once "User.class.php";
 require_once "DbConnection.class.php";
 require_once "Util.php";
+require_once "UserAuth.class.php";
 /**
  * Created by PhpStorm.
  * User: andre
@@ -28,24 +29,9 @@ class UserControl{
             try{
 
                 $isAdm = $usr->isAdmin() == true ? "true" : "false";
-
                 $query = "
                 INSERT INTO tbl_users (
-                    PK_cpf,         
-                    nome_completo,  
-                    UN_nome_usuario,
-                    senha,          
-                    UN_email,       
-                    data_nasc,     
-                    tel,            
-                    rua,            
-                    numero,         
-                    bairro,         
-                    complemento,    
-                    cidade,         
-                    cep,            
-                    pais,           
-                    is_adm        
+                    PK_cpf, nome_completo, UN_nome_usuario, senha, email, data_nasc, tel, rua, numero, bairro, complemento, cidade, cep, pais, is_adm        
                 )
                 VALUES
                 (
@@ -66,10 +52,15 @@ class UserControl{
                   ".$isAdm ."
                 )
                 ";
-                $conn->exec($query);
+               $conn->exec($query);
                 return true;
             }catch (Exception $e){
-                echo "Erro ao Adicionar usuário: $e";
+                $complemet = "";
+                if($e->getCode() == "23000"){
+                    $complemet = "Já existe um usuário que usa o username enviado.";
+                }
+
+                echo Util::getFloatingAlertBox("Erro ao adicionar usuário ", $complemet . "<br><br>" .$e->getMessage(), "error");
                 return null;
             }
         }
@@ -87,7 +78,7 @@ class UserControl{
                     ." nome_completo = '".$usr->getCompleteName()
                     ."',UN_nome_usuario = '".$usr-> getUserName()
                     ."', senha = '".$usr->getPassword()
-                    ."', UN_email = '".$usr->getEmail()
+                    ."', email = '".$usr->getEmail()
                     ."', data_nasc = '".$usr->getBirthDate()
                     ."', tel = '".$usr->getTel()
                     ."', rua= '".$usr->getStreet()
@@ -101,12 +92,10 @@ class UserControl{
                     ." WHERE(PK_cpf = '".$usr->getCpf()."')";
 
                 //var_dump_pre($query);
-
-
                 $conn->exec($query);
                 return true;
             }catch (Exception $e){
-                echo "Erro ao Atualizar usuário: $e";
+                echo Util::getFloatingAlertBox("Erro ao atualizar usuário",$e->getMessage(), "error");
                 return null;
             }
         }
@@ -138,7 +127,7 @@ class UserControl{
                     return $this->toUserObject2($row);
                 }
             }catch (Exception $e){
-                echo "Erro ao recuperar usuário: ".$e->getMessage();
+                echo Util::getFloatingAlertBox("Erro ao recuperar usuário",$e->getMessage(), "error");
                 return null;
             }
         }
@@ -146,15 +135,12 @@ class UserControl{
     }
 
     function retrieveLoggedUser(){
-        if($id = $this->isUserLogged()){
-            return $this->retrieveUserById($id);
-        }
-        return null;
+       if($id = $this->isUserLogged()){
+           return $this->retrieveUserById($id);
+       }
+       return null;
     }
-
-    function toUserObject($OriginalData){    //KAREN
-
-    }
+    
 
     function toUserObject2($originalData){
         $usr = new User();
@@ -175,7 +161,7 @@ class UserControl{
                     return $this->toUserObject2($row);
                 }
             }catch (Exception $e){
-                echo "Erro ao recuperar usuário: $e";
+                echo Util::getFloatingAlertBox("Erro ao autenticar usuário",$e->getMessage(), "error");
                 return false;
             }
         }
@@ -187,7 +173,7 @@ class UserControl{
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
-        $_SESSION ['user'] = $uid;
+		$_SESSION ['user'] = $uid;
     }
 
     function logoutUser(){
@@ -195,7 +181,7 @@ class UserControl{
             session_start();
         }
         session_unset();
-        session_destroy();
+		session_destroy();
     }
 
     function isUserLogged(){
@@ -207,5 +193,6 @@ class UserControl{
         }
         else
             return false; // Não logado
-    }
+        }
 }
+

@@ -3,10 +3,9 @@
  * Created by PhpStorm.
  * User: andre
  */
-require_once "php_control/FormHandler.class.php";
-require_once "util/Util.php";
-$formHandler = new FormHandler();
-$formHandler->handle();
+
+
+
 
 
 ?>
@@ -21,10 +20,16 @@ $formHandler->handle();
 </head>
 <body class="login">
 
+<?php
+    require_once "php_control/FormHandler.class.php";
+    require_once "php_control/Util.php";
+    $formHandler = new FormHandler();
+    $formHandler->handle();
+?>
 
 <div class="hCentered vCentered shadowed" id="loginDiv">
     <h1>Login</h1>
-    <form name="form_login" action="" method="POST">
+    <form name="form_login" method="post">
         <label for="login" class="large">Login</label>
         <input type="text" name="login" id="login" required placeholder="Login" class="hCentered sticky large">
 
@@ -36,8 +41,10 @@ $formHandler->handle();
     </form>
     <br>
     <br>
-    <?php  echo getAlertBox("Status", $formHandler->getStatus()[1], $formHandler->getStatus()[0], $formHandler->getStatus()[1] == "" ? false : true) ?>
+    <?php  echo Util::getAlertBox("Status", $formHandler->getStatus()[1], $formHandler->getStatus()[0], $formHandler->getStatus()[1] == "" ? false : true) ?>
 </div>
+
+
 
 
 
