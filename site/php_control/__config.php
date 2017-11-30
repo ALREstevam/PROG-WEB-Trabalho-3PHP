@@ -9,9 +9,10 @@ $db_host = "localhost";
 $db_name = "db_pw3";
 $db_password = "";
 $db_username = "root";
-$folder_from_root = "PROG-WEB-Trabalho-3PHP/site";
 
 
+
+//$folder_from_root = "PROG-WEB-Trabalho-3PHP/site";
 
 /***************************************************************************/
 

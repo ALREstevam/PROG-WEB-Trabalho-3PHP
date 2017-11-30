@@ -7,12 +7,12 @@ function getCountryNamesArray(){
 }
 
 
-class UserGeneratorUtil{
+class TestsUtil{
     static function getUserListExample($amount){
         $rsp = [];
 
         for($i = 0; $i < $amount; $i++){
-            $rsp[] = UserGeneratorUtil::getUserExample();
+            $rsp[] = TestsUtil::getUserExample();
         }
         return $rsp;
     }
